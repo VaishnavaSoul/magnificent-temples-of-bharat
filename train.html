@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Train Yatra Planner - Ritual Realms</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Fonts for official look -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<style>
+/* Body & Background */
+body {
+  background: url("images/krishna-bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* Page Heading */
+.page-intro {
+  max-width: 750px;
+  margin: 40px auto 20px;
+  text-align: center;
+}
+
+.page-intro h1 {
+  color: #ffd700;
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  text-shadow: 0 0 10px gold;
+  margin-bottom: 10px;
+}
+
+.page-intro p {
+  color: #ffcc33;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Form Box */
+.form-box {
+  max-width: 500px;
+  margin: 20px auto;
+  background: rgba(0,0,0,0.75);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255,153,51,0.6);
+  text-align: center;
+}
+
+.form-box h2 {
+  color: #ffd700;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;
+  font-size: 28px;
+  text-shadow: 0 0 8px gold;
+}
+
+/* Dark themed input boxes */
+input, select {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #1a1a1a;
+  color: #fffacd;
+  font-size: 16px;
+}
+
+input::placeholder, select option {
+  color: #fffacd;
+  opacity: 0.8;
+}
+
+/* Generate Button */
+.generate-btn {
+  background: linear-gradient(45deg, #ffd700, #ffae00);
+  color: black;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.generate-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px gold;
+}
+
+/* Premium Yatra Card */
+#yatraCard {
+  display: none;
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 40px 30px;
+  border-radius: 25px;
+  background: url("images/card.png") no-repeat center center;
+  background-size: cover;
+  border: 4px solid #ff9933;
+  box-shadow: 0 0 50px rgba(255,153,51,0.7);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Playfair Display', serif;
+  animation: cardFloat 6s ease-in-out infinite, cardGlow 3s infinite alternate;
+}
+
+/* Card Overlay */
+#yatraCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3); /* lighter overlay so image is visible */
+  z-index: 0;
+}
+
+/* Text above overlay */
+#yatraCard * {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 6px black;
+}
+
+#yatraCard h1 {
+  color: #ffd700;
+  font-size: 32px;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+#yatraCard h3 {
+  color: #ffcc33;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.card-detail {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #fffacd;
+  font-weight: 600;
+}
+
+/* Card Buttons */
+.card-buttons button {
+  margin: 15px 8px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-buttons button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px gold;
+}
+
+.download { background: gold; color: black; }
+.book { background: #ff9900; color: black; }
+.share { background: #ffd633; color: black; }
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 20px;
+  color: #ffd700;
+  font-size: 14px;
+}
+
+/* Save Toast */
+.save-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(45deg,#ffd700,#ffae00);
+  color: black;
+  padding: 14px 28px;
+  border-radius: 40px;
+  font-weight: bold;
+  box-shadow: 0 0 20px gold;
+  opacity: 0;
+  transition: 0.5s;
+  z-index: 9999;
+}
+
+/* Card Animations */
+@keyframes cardGlow {
+  0% { box-shadow: 0 0 40px rgba(255,153,51,0.6); }
+  50% { box-shadow: 0 0 60px rgba(255,153,51,0.8); }
+  100% { box-shadow: 0 0 40px rgba(255,153,51,0.6); }
+}
+
+@keyframes cardFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Footer */
+.footer {
+  background: #111;
+  color: #ffd700;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 16px;
+  box-shadow: 0 -3px 15px rgba(255,153,51,0.5);
+  margin-top: 40px;
+}
+
+.footer .line {
+  color: #ff9933;
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Page Intro -->
+<div class="page-intro">
+  <h1>🚆 Ritual Realms Yatra Planner</h1>
+  <p>Welcome, dear traveler! Plan your sacred journey effortlessly. Fill in your details below and generate your <strong>Divine Yatra Card</strong> instantly. 🪔</p>
+</div>
+
+<!-- Form Box -->
+<div class="form-box">
+  <h2>🚆 Plan Your Train Yatra</h2>
+
+  <input id="name" placeholder="Your Name">
+  <input id="from" placeholder="From Station">
+  <input id="date" type="date">
+
+  <select id="class">
+    <option value="Sleeper">Sleeper</option>
+    <option value="3AC">3 Tier AC</option>
+    <option value="2AC">2 Tier AC</option>
+    <option value="CC">Chair Car</option>
+  </select>
+
+  <button class="generate-btn" onclick="generateCard()">Generate Yatra Card</button>
+</div>
+
+<!-- Premium Yatra Card -->
+<div id="yatraCard">
+  <img src="images/logo.png" width="80">
+  <h1>RITUAL REALMS</h1>
+  <h3>Divine Pilgrimage Travel Slip</h3>
+
+  <div class="card-detail" id="cname"></div>
+  <div class="card-detail" id="cfrom"></div>
+  <div class="card-detail" id="cto"></div>
+  <div class="card-detail" id="cdate"></div>
+  <div class="card-detail" id="cclass"></div>
+  <div class="card-detail" id="cseat"></div>
+  <div class="card-detail" id="cstatus"></div>
+
+  <p class="disclaimer">
+    Booking must be completed on the official railway website.<br>
+    Prepare for sacred darshan 🙏
+  </p>
+
+  <div class="card-buttons">
+    <button class="download" onclick="downloadCard()">📸 Save Card</button>
+    <button class="book" onclick="goIRCTC()">➡ Continue Booking</button>
+    <button class="share" onclick="shareCard()">📤 Share</button>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  © 2026 Ritual Realms. All rights reserved.
+  <div class="line">“Every sacred journey begins with devotion and faith.”</div>
+</div>
+
+<!-- Scripts -->
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+function generateCard(){
+  let temple = localStorage.getItem("selectedTemple") || "Temple";
+  let name = document.getElementById("name").value;
+  let from = document.getElementById("from").value;
+  let date = document.getElementById("date").value;
+  let cls = document.getElementById("class").value;
+
+  document.getElementById("cname").innerText = "Devotee: " + name;
+  document.getElementById("cfrom").innerText = "From: " + from;
+  document.getElementById("cto").innerText = "To: " + temple;
+  document.getElementById("cdate").innerText = "Date: " + date;
+  document.getElementById("cclass").innerText = "Class: " + cls;
+
+  // Extra premium details
+  document.getElementById("cseat").innerText = "Seat: A1-42";
+  document.getElementById("cstatus").innerText = "Status: Confirmed";
+
+  document.getElementById("yatraCard").style.display="block";
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function downloadCard(){
+  html2canvas(document.getElementById("yatraCard")).then(canvas=>{
+    let link=document.createElement("a");
+    link.download="yatra-slip.png";
+    link.href=canvas.toDataURL();
+    link.click();
+    showSavedMessage();
+  });
+}
+
+function showSavedMessage(){
+  let msg=document.createElement("div");
+  msg.innerText="🪔 Yatra Card saved to your device";
+  msg.className="save-toast";
+  document.body.appendChild(msg);
+  setTimeout(()=>{ msg.style.opacity="1"; },50);
+  setTimeout(()=>{ msg.style.opacity="0"; setTimeout(()=>msg.remove(),500); },2500);
+}
+
+function goIRCTC(){
+  window.open("https://www.irctc.co.in","_blank");
+}
+
+function shareCard(){
+  html2canvas(document.getElementById("yatraCard")).then(canvas=>{
+    canvas.toBlob(function(blob){
+      const file = new File([blob], "yatra-card.png", {type:"image/png"});
+      if(navigator.canShare && navigator.canShare({files:[file]})){
+        navigator.share({files:[file], title:"My Divine Yatra Card"});
+      } else {
+        alert("Sharing not supported, please download instead.");
+      }
+    });
+  });
+}
+</script>
+</body>
+</html>

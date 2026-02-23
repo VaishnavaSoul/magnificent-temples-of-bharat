@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel Options</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+body{
+  background: url("images/krishna-bg.jpg") center/cover fixed;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* DIVINE CARD */
+.divine-card{
+  background: #000000; /* pure black card */
+  max-width: 700px;
+  width: 90%;
+  margin-top: 50px;
+  padding: 40px 30px;
+  border-radius: 25px;
+  box-shadow: 0 0 25px 10px rgba(255, 153, 51, 0.6); /* saffron glow */
+  text-align: center;
+  animation: glowPulse 3s infinite alternate;
+}
+
+/* CARD GLOW ANIMATION */
+@keyframes glowPulse{
+  0% { box-shadow: 0 0 25px 10px rgba(255,153,51,0.6); }
+  50% { box-shadow: 0 0 35px 15px rgba(255,153,51,0.8); }
+  100% { box-shadow: 0 0 25px 10px rgba(255,153,51,0.6); }
+}
+
+/* TEMPLE TITLE */
+.temple-title{
+  font-size: 48px;
+  color: #ffd700;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #ffd700, 0 0 25px gold, 0 0 50px rgba(255,215,0,0.8);
+  letter-spacing: 1px;
+}
+
+/* INTRO TEXT */
+.intro-text{
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ffcc33; /* saffron-like */
+  margin-bottom: 35px;
+}
+
+/* HIGHLIGHT YELLOW GREETING */
+.highlight-yellow{
+  color: #ffd700;
+  font-size: 22px;
+  font-weight: 700;
+  text-shadow: 0 0 5px #ffd700;
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* OPTION GRID INSIDE CARD */
+.option-grid{
+  display: grid;
+  gap: 20px;
+  padding: 0 10px;
+}
+
+/* INNOVATIVE BUTTONS */
+.option-card{
+  background: #111111;
+  color: #ffd700;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 18px 20px;
+  border-radius: 30px;
+  border: 2px solid #ffd700;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* HOVER EFFECT */
+.option-card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 35px 10px rgba(255,215,0,0.8);
+}
+
+/* CLICK SCALE */
+.option-card:active{
+  transform: scale(0.95);
+}
+
+/* VEHICLE CONTAINER INSIDE BUTTON */
+.option-card .vehicle{
+  position: absolute;
+  white-space: nowrap;
+  font-size: 24px;
+  left: 100%;
+  animation: moveVehicle 4s linear infinite;
+}
+
+/* EACH VEHICLE GETS UNIQUE SPEED */
+.option-card[data-speed="3"] .vehicle { animation-duration: 25s; }
+.option-card[data-speed="4"] .vehicle { animation-duration: 25s; }
+.option-card[data-speed="5"] .vehicle { animation-duration: 25s; }
+
+/* MOVING VEHICLE ANIMATION */
+@keyframes moveVehicle{
+  0% { left: 100%; }
+  100% { left: -100%; }
+}
+
+/* FOOTER */
+.footer{
+  margin-top: auto;
+  padding: 20px 0;
+  width: 100%;
+  background: #111;
+  color: #ffd700;
+  text-align: center;
+  font-size: 16px;
+  box-shadow: 0 -3px 15px rgba(255,153,51,0.5);
+}
+
+.footer .line{
+  color: #ff9933;
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="divine-card">
+  <h1 id="templeName" class="temple-title"></h1>
+
+  <p class="intro-text">
+    <span class="highlight-yellow">Welcome, dear traveler! 🌟</span>
+    Your journey to the divine begins here. Whether you glide by train, soar by air, or travel on the road, every path is magical. Choose your preferred travel mode and let the adventure unfold!
+  </p>
+
+  <div class="option-grid">
+    <div class="option-card" data-speed="4" onclick="goTrain()">
+      Train
+      <span class="vehicle">🚂🚃🚃🚃</span>
+    </div>
+    <div class="option-card" data-speed="3">
+      Bus
+      <span class="vehicle">🚌</span>
+    </div>
+    <div class="option-card" data-speed="4">
+      Flight
+      <span class="vehicle">✈️</span>
+    </div>
+    <div class="option-card" data-speed="5">
+      Local Travel
+      <span class="vehicle">🚕</span>
+    </div>
+    <div class="option-card" data-speed="4">
+      Packages
+      <span class="vehicle">🧳</span>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  © 2026 Ritual Realms. All rights reserved.
+  <div class="line">“Every journey to the divine begins with a single step.”</div>
+</div>
+
+<script>
+const temple = localStorage.getItem("selectedTemple") || "Temple";
+document.getElementById("templeName").innerText = temple;
+
+function goTrain(){
+  window.location.href = "train.html?temple=" + encodeURIComponent(temple);
+}
+</script>
+
+</body>
+</html>

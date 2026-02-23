@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ritual Realms | The Sacred Unveiled</title>
+    <!-- Share Preview (Open Graph) -->
+    <meta property="og:title" content="Ritual Realms – The Sacred Temple Explorer">
+    <meta property="og:description" content="Discover divine temples of Bharat, their history, festivals and spiritual significance. Begin your yatra with Ritual Realms 🙏">
+    <meta property="og:image" content="https://vaishnavasoul.github.io/magnificent-temples-of-bharat/images/ritual-realms-logo.png">
+    <meta property="og:url" content="https://vaishnavasoul.github.io/magnificent-temples-of-bharat/">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Linking CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DYX852KFZP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DYX852KFZP');
+</script>
+</head>
+
+<body>
+<style>
+/* Footer */
+.footer {
+  background: #111;
+  color: #ffd700;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 16px;
+  box-shadow: 0 -3px 15px rgba(255,153,51,0.5);
+  margin-top: 40px;
+}
+
+.footer .line {
+  color: #ff9933;
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 5px;
+}
+</style>
+<!-- ☰ Menu Button -->
+<div id="menu-btn">☰</div>
+
+<!-- Side Menu -->
+<div id="side-menu">
+  <div class="menu-header">🛕 Temple App</div>
+
+  <a href="index.html" class="menu-item active">🏠 Home</a>
+  <a href="live-darshan.html" class="menu-item">🔴 Live Darshan</a>
+  <a href="rooms.html" class="menu-item">🏨 Rooms Availability</a>
+  <a href="transport.html" class="menu-item">🚆 Transport Facilities</a>
+  <a href="#" class="menu-item">📜 Other</a>
+  <a href="#" class="menu-item" onclick="shareWebsite()">📤 Share</a>
+
+
+  <div class="menu-footer">
+  <a href="#" class="menu-item">👤 My Account</a>
+  <button id="logout-btn">Logout</button>
+  </div>
+</div>
+<div id="menu-overlay"></div>
+<div class="overlay">
+    <!-- HEADER -->
+    <header style="text-align: center; position: relative; margin-bottom: 20px;">
+    <div class="site-logo">
+        <img src="images/ritual-realms-logo.png" alt="Ritual Realms">
+    </div>
+    <h1 style="display: inline-block; margin: 0;">
+        Ritual Realms
+    </h1>
+  <span style="
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: #ffd700;
+    border-radius: 50%;
+    padding: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+">
+    <span id="musicBtn" style="
+  font-size: 22px;
+  cursor: pointer;
+">
+🎵
+</span>
+</span>
+
+    </span>
+     <p>Explore sacred temples across Indian states</p>
+    </header>
+    <!-- NAVIGATION MENU -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#states">States</a>
+        <a href="about.html">About</a>
+        <a href="planner.html">Planner</a>
+        <a href="map.html">Map Explorer</a>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <section class="intro sacred-intro">
+
+    <h2>Begin Your Sacred Journey</h2>
+
+    <p>
+    Not every journey begins with footsteps — some begin with devotion.
+    Ritual Realms is a gateway into the timeless temples of Bharath,
+    where every sanctum carries centuries of prayers, traditions and divine presence.
+    </p>
+
+    <!-- Vishnu Sloka -->
+    <div class="sloka-quote">
+    "शान्ताकारं भुजगशयनं पद्मनाभं सुरेशं <br>
+    विश्वाधारं गगनसदृशं मेघवर्णं शुभाङ्गम्।<br>
+    लक्ष्मीकान्तं कमलनयनं योगिभिर्ध्यानगम्यम् <br>
+    वन्दे विष्णुं भवभयहरं सर्वलोकैकनाथम्॥"
+    <div class="sloka-author">— Vishnu Dhyana Sloka</div>
+    </div>
+
+
+    <p>
+    Here you don’t just read about temples — you experience them.
+    From Sthala Purana to festivals, from darshan guidance to spiritual meaning,
+    this space is created to feel like entering the temple itself.
+    </p>
+
+    </section>
+   
+
+    <!-- STATES SECTION -->
+<section id="states" class="states">
+    <h2>Temples by State</h2>
+
+    <div class="state-buttons">
+        <button onclick="location.href='states/tamilnadu.html'">
+    Tamil Nadu
+        </button>
+
+
+        <button onclick="location.href='states/andhrapradesh.html'">
+    Andra Pradesh
+
+        </button>
+
+        <button onclick="alert('Karnataka temples coming soon')">
+            Karnataka
+        </button>
+
+        <button onclick="alert('Kerala temples coming soon')">
+            Kerala
+        </button>
+
+        <button onclick="alert('Telangana temples coming soon')">
+            Telangana
+        </button>
+    </div>
+</section>
+<!-- ===== DAILY VAISHNAVA PANCHANGAM ===== -->
+<section class="daily-panchangam">
+
+  <h2 class="panchangam-title">📅 Today’s Vaishnava Panchangam</h2>
+
+  <p class="panchangam-date">Monday, 10 February 2026</p>
+
+  <p class="panchangam-quote">
+    “Śrī Nammāḻvār Tirunakṣatram observed today”
+  </p>
+
+  <div class="panchangam-grid">
+
+    <div class="panchangam-item">
+      <span class="label">Nakṣatra</span>
+      <span class="value">Śravaṇa</span>
+    </div>
+
+    <div class="panchangam-item">
+      <span class="label">Tithi</span>
+      <span class="value">Ekādaśī 🔔</span>
+    </div>
+
+    <div class="panchangam-item">
+      <span class="label">Pakṣa</span>
+      <span class="value">Śukla Pakṣa</span>
+    </div>
+
+    <div class="panchangam-item">
+      <span class="label">Māsa</span>
+      <span class="value">Māgha Māsa</span>
+    </div>
+
+    <div class="panchangam-item">
+      <span class="label">Brahma Muhūrta</span>
+      <span class="value">4:38 AM – 5:26 AM</span>
+    </div>
+
+    <div class="panchangam-item">
+      <span class="label">Sunrise</span>
+      <span class="value">6:32 AM</span>
+    </div>
+
+    <div class="panchangam-item">
+      <span class="label">Sunset</span>
+      <span class="value">6:12 PM</span>
+    </div>
+
+    <div class="panchangam-item">
+      <span class="label">Moonrise</span>
+      <span class="value">2:41 AM</span>
+    </div>
+
+    <div class="panchangam-item">
+      <span class="label">Moonset</span>
+      <span class="value">3:58 PM</span>
+    </div>
+
+  </div>
+
+  <div class="panchangam-observance">
+    <span class="badge ekadashi">Ekādaśī Vrata</span>
+    <span class="badge inactive">Amāvāsyā</span>
+    <span class="badge inactive">Paurṇamī</span>
+  </div>
+
+</section>
+<!-- TEMPLE SLIDER -->
+<section class="temple-slider">
+
+  <div class="slide active" style="background-image: url('./images/slides/slide1.png');">
+
+    <div class="slide-content">
+      <h1>Meenakshi Amman Temple</h1>
+      <p>The sacred heart of Madurai and divine abode of Goddess Meenakshi</p>
+      <button class="btn explore" onclick="location.href='meenakshi.html'">
+        Explore Now
+      </button>
+    </div>
+  </div>
+
+  <div class="slide" style="background-image: url('images/slides/slide2.png');">
+    <div class="slide-content">
+      <h1>Sri Venkateshwara Temple</h1>
+      <p>The eternal Tirupati where Lord Vishnu blesses devotees</p>
+      <button class="btn explore" onclick="location.href='tirupati.html'">
+        Explore Now
+      </button>
+    </div>
+  </div>
+
+  <div class="slide" style="background-image: url('images/slides/slide3.png');">
+    <div class="slide-content">
+      <h1>Brihadeeshwara Temple</h1>
+      <p>Chola architectural wonder dedicated to Lord Shiva</p>
+      <button class="btn explore" onclick="location.href='brihadeeshwara.html'">
+        Explore Now
+      </button>
+    </div>
+  </div>
+
+  <div class="slide" style="background-image: url('images/slides/slide4.png');">
+    <div class="slide-content">
+      <h1>Vaidhya Veeraraghava Swamy Temple</h1>
+      <p>The divine healer among Divya Desams</p>
+      <button class="btn coming" disabled>
+        Coming Soon
+      </button>
+    </div>
+  </div>
+
+  <div class="slide" style="background-image: url('images/slides/slide5.png');">
+    <div class="slide-content">
+      <h1>Thalpagiri Ranganathaswamy Temple</h1>
+      <p>Sacred Divya Desam on the banks of Penna River</p>
+      <button class="btn coming" disabled>
+        Coming Soon
+      </button>
+    </div>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <button class="nav prev" onclick="prevSlide()">❮</button>
+  <button class="nav next" onclick="nextSlide()">❯</button>
+
+</section>
+<div style="height: 1000px;"></div>
+<!-- Footer -->
+<div class="footer">
+  © 2026 Ritual Realms. All rights reserved.
+  <div class="line">“Every sacred journey begins with devotion and faith.”</div>
+</div>
+
+</div>
+<script>
+const sections = document.querySelectorAll(".intro");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.15 });
+
+sections.forEach(section => observer.observe(section));
+</script>
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const sideMenu = document.getElementById("side-menu");
+  const overlay = document.getElementById("menu-overlay");
+
+
+  menuBtn.onclick = () => {
+    sideMenu.classList.add("open");
+    overlay.classList.add("show");
+  };
+
+  overlay.onclick = () => {
+    sideMenu.classList.remove("open");
+    overlay.classList.remove("show");
+  };
+</script>
+<!-- Avyaan Floating Logo -->
+<div id="avyaan-launcher">
+  <img src="images/avyaan-logo.png" alt="Avyaan AI">
+</div>
+
+<!-- Avyaan Chat Box -->
+<div id="avyaan-box">
+  <div class="avyaan-header">
+    Avyaan • Your Yatra Guide
+    <span id="avyaan-close">✕</span>
+  </div>
+
+  <div id="avyaan-messages"></div>
+
+  <div class="avyaan-input">
+    <input type="text" id="avyaan-text" placeholder="Ask Avyaan..." />
+    <button onclick="sendToAvyaan()">➤</button>
+  </div>
+</div>
+<script>
+const launcher = document.getElementById("avyaan-launcher");
+const box = document.getElementById("avyaan-box");
+const closeBtn = document.getElementById("avyaan-close");
+const messages = document.getElementById("avyaan-messages");
+const input = document.getElementById("avyaan-text");
+
+launcher.onclick = () => {
+  box.style.display = "flex";
+  launcher.style.display = "none";
+  avyaanWelcome();
+};
+
+closeBtn.onclick = () => {
+  box.style.display = "none";
+  launcher.style.display = "block";
+};
+
+function avyaanWelcome() {
+  messages.innerHTML = `
+    <div class="avyaan-message bot">
+      <img src="images/avyaan-wave.png">
+      <div class="bubble">
+        Hi 🙏 I am <b>Avyaan</b>, your guide in this divine yatra.<br>
+        I will help you understand this website, temples, and how to explore them.
+      </div>
+    </div>
+  `;
+}
+
+function sendToAvyaan() {
+  const text = input.value.trim();
+  if (!text) return;
+
+  // User message
+  messages.innerHTML += `
+    <div class="avyaan-message user">
+      <div class="bubble">${text}</div>
+    </div>
+  `;
+  input.value = "";
+  messages.scrollTop = messages.scrollHeight;
+
+  // Thinking
+  const thinking = document.createElement("div");
+  thinking.className = "avyaan-message bot";
+  thinking.innerHTML = `
+    <img src="images/avyaan-think.png">
+    <div class="bubble">...</div>
+  `;
+  messages.appendChild(thinking);
+  messages.scrollTop = messages.scrollHeight;
+
+  setTimeout(() => {
+    thinking.remove();
+    messages.innerHTML += `
+      <div class="avyaan-message bot">
+        <img src="images/avyaan-wave.png">
+        <div class="bubble">${getAvyaanReply(text)}</div>
+      </div>
+    `;
+    messages.scrollTop = messages.scrollHeight;
+  }, 1500);
+}
+
+function getAvyaanReply(text) {
+  text = text.toLowerCase();
+
+  if (text.includes("website"))
+    return "This website helps devotees explore Divya Kshetras, their history, festivals, and sacred significance.";
+
+  if (text.includes("how"))
+    return "Use the menu to explore temples by state, read about them, and plan your pilgrimage.";
+
+  if (text.includes("temple"))
+    return "Each temple page provides Sthala Purana, deity details, festivals, and spiritual importance.";
+
+  if (text.includes("about"))
+    return "The About page shares the vision, purpose, and the devotee behind this initiative.";
+
+  return "Ask me about the website, temples, festivals, or how to begin your spiritual journey 🙏";
+}
+</script>
+<!-- 🎵 Music Panel -->
+<div id="music-panel">
+  <div class="music-header">
+    Divine Music
+    <span id="music-close">✕</span>
+  </div>
+
+  <div class="music-list">
+    <button onclick="playSong('audio/song1.mp3')">🕉 Sri Venkateswara Suprabhatam</button>
+    <button onclick="playSong('audio/song2.mp3')">🕉 Shree Hari Stotram</button>
+    <button onclick="playSong('audio/song3.mp3')">🕉 Garuda Gamana Tava</button>
+    <button onclick="playSong('audio/song4.mp3')">🕉 Hara Hara Shambu Shivamahadeva</button>
+  </div>
+
+  <div class="music-controls">
+    <button onclick="pauseSong()">⏸</button>
+    <button onclick="resumeSong()">▶</button>
+    <button onclick="stopSong()">⏹</button>
+  </div>
+</div>
+<audio id="homePlayer"></audio>
+<script>
+const musicBtn = document.getElementById("musicBtn");
+const panel = document.getElementById("music-panel");
+const closeBtn = document.getElementById("music-close");
+const player = document.getElementById("homePlayer");
+
+// Open panel
+musicBtn.onclick = () => {
+  panel.style.display = "block";
+};
+
+// Close panel
+closeBtn.onclick = () => {
+  panel.style.display = "none";
+};
+
+// Music functions
+function playSong(src) {
+  player.src = src;
+  player.volume = 0.4;
+  player.play();
+}
+
+function pauseSong() {
+  player.pause();
+}
+
+function resumeSong() {
+  player.play();
+}
+
+function stopSong() {
+  player.pause();
+  player.currentTime = 0;
+}
+
+// 🚨 VERY IMPORTANT: stop music when leaving Home
+window.addEventListener("beforeunload", () => {
+  player.pause();
+  player.currentTime = 0;
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const musicBtn = document.getElementById("musicBtn");
+  const panel = document.getElementById("music-panel");
+  const closeBtn = document.getElementById("music-close");
+  const player = document.getElementById("homePlayer");
+
+  if (!musicBtn || !panel || !player) {
+    console.error("Music elements missing");
+    return;
+  }
+
+  // Open panel
+  musicBtn.addEventListener("click", () => {
+    panel.style.display = "block";
+  });
+
+  // Close panel
+  closeBtn.addEventListener("click", () => {
+    panel.style.display = "none";
+  });
+
+  // Music controls
+  window.playSong = (src) => {
+    player.src = src;
+    player.volume = 0.4;
+    player.play();
+  };
+
+  window.pauseSong = () => player.pause();
+
+  window.resumeSong = () => player.play();
+
+  window.stopSong = () => {
+    player.pause();
+    player.currentTime = 0;
+  };
+
+  // Stop music when leaving home
+  window.addEventListener("beforeunload", () => {
+    player.pause();
+    player.currentTime = 0;
+  });
+
+});
+</script>
+<script>
+let slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove("active"));
+  slides[index].classList.add("active");
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+// Auto slide every 5 seconds
+setInterval(nextSlide, 5000);
+</script>
+<script>
+function shareWebsite() {
+
+  const shareData = {
+    title: "Ritual Realms – Sacred Temple Explorer",
+    text: `🙏 Discover the divine temples of Bharat
+
+Explore temple history, festivals, darshan guidance and spiritual significance.
+Plan your yatra and experience devotion digitally.
+
+Start your journey here 👇`,
+    url: "https://vaishnavasoul.github.io/magnificent-temples-of-bharat/"
+  };
+
+  // If phone supports native share (WhatsApp, Insta, Gmail etc)
+  if (navigator.share) {
+    navigator.share(shareData)
+      .then(() => console.log("Shared successfully"))
+      .catch(err => console.log(err));
+  }
+
+  // Fallback for laptop / unsupported browsers
+  else {
+    const text = shareData.text + "\n" + shareData.url;
+    navigator.clipboard.writeText(text);
+    alert("Link copied! Paste it anywhere to share 🙏");
+  }
+}
+</script>
+</body>
+</html>

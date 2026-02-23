@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DYX852KFZP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DYX852KFZP');
+</script>
+  <meta charset="UTF-8">
+  <title>Pilgrim Planner – The Magnificent Temples of Bharat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+<style>
+/* Footer */
+.footer {
+  background: #111;
+  color: #ffd700;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 16px;
+  box-shadow: 0 -3px 15px rgba(255,153,51,0.5);
+  margin-top: 40px;
+}
+
+.footer .line {
+  color: #ff9933;
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 5px;
+}
+</style>
+<div class="overlay">
+
+  <header>
+    <h1>🧭 Pilgrim Planner</h1>
+    <p>Plan your sacred journey with divine guidance</p>
+  </header>
+  <section class="planner-section">
+    <h2>Plan Your Pilgrimage</h2>
+
+    <select id="state">
+      <option value="">Select State</option>
+      <option value="Tamil Nadu">Tamil Nadu</option>
+      <option value="Andhra Pradesh">Andhra Pradesh</option>
+    </select>
+
+    <select id="temple">
+      <option value="">Select Temple</option>
+    </select>
+
+    <select id="month">
+      <option value="">Select Month</option>
+      <option value="January">January</option>
+      <option value="February">February</option>
+      <option value="March">March</option>
+      <option value="April">April</option>
+      <option value="May">May</option>
+      <option value="June">June</option>
+      <option value="July">July</option>
+      <option value="August">August</option>
+      <option value="September">September</option>
+      <option value="October">October</option>
+      <option value="November">November</option>
+      <option value="December">December</option>
+    </select>
+
+    <button class="login-btn" onclick="showPlan()">🔍 Show Sacred Insights</button>
+  </section>
+
+  <section class="planner-section" id="result" style="display:none;">
+    <h2>✨ Pilgrimage Insights</h2>
+    <div id="output" class="insights-card"></div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+  © 2026 Ritual Realms. All rights reserved.
+  <div class="line">“Every sacred journey begins with devotion and faith.”</div>
+  </div>
+
+</div>
+
+<script>
+// Temples by state
+const templesByState = {
+  "Tamil Nadu": ["Meenakshi Amman Temple", "Ramanathaswamy Temple", "Chidambaram Temple"],
+  "Andhra Pradesh": ["Tirupati Balaji"]
+};
+
+// Temple data for all 12 months
+const templeData = {
+  "Meenakshi Amman Temple": {},
+  "Ramanathaswamy Temple": {},
+  "Chidambaram Temple": {},
+  "Tirupati Balaji": {}
+};
+
+// Auto-fill all 12 months with placeholder data
+const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+for(const temple in templeData){
+  months.forEach(m=>{
+    templeData[temple][m] = {
+      bestTime: "Early Morning (5–8 AM)",
+      festival: "Major festival placeholder",
+      weather: "Pleasant & warm",
+      reach: "<a href='#' target='_blank'>Directions</a>"
+    }
+  });
+}
+
+// Dynamically filter temples based on state
+document.getElementById("state").addEventListener("change", function() {
+  const state = this.value;
+  const templeSelect = document.getElementById("temple");
+  templeSelect.innerHTML = '<option value="">Select Temple</option>';
+  if (templesByState[state]) {
+    templesByState[state].forEach(t => {
+      const option = document.createElement("option");
+      option.value = t;
+      option.textContent = t;
+      templeSelect.appendChild(option);
+    });
+  }
+});
+
+// Show pilgrimage insights
+function showPlan() {
+  const temple = document.getElementById("temple").value;
+  const month = document.getElementById("month").value;
+
+  if(temple && month){
+    const info = templeData[temple][month];
+    document.getElementById("output").innerHTML = `
+      🕉️ <b>Best Darshan:</b> ${info.bestTime}<br>
+      🎉 <b>Festival:</b> ${info.festival}<br>
+      🌦️ <b>Weather:</b> ${info.weather}<br>
+      🚗 <b>Reach:</b> ${info.reach}
+    `;
+    document.getElementById("result").style.display = "block";
+  }
+}
+</script>
+</body>
+</html>
