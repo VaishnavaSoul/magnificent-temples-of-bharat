@@ -1869,3 +1869,38 @@ body {
     line-height: 1.5;
   }
 }
+@media (max-width: 768px) {
+  .slide-img {
+    width: 100% !important;       /* make image fit container */
+    height: auto !important;      /* maintain aspect ratio */
+    object-fit: cover;            /* ensures no weird stretching */
+  }
+
+  /* Optional: ensure slider container doesn't cut images */
+  .temple-slider {
+    overflow: hidden;
+  }
+}
+@media (max-width: 768px) {
+
+  /* Panchangam grid only */
+  .panchangam-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns vertical */
+    gap: 12px 20px;
+  }
+
+  .panchangam-item {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  /* Very small phones - 1 column */
+  @media (max-width: 480px) {
+    .panchangam-grid {
+      grid-template-columns: 1fr; /* single column on tiny phones */
+    }
+  }
+
+  /* Temple buttons unaffected! */
+}
