@@ -1904,3 +1904,94 @@ body {
 
   /* Temple buttons unaffected! */
 }
+/* ================== MOBILE-ONLY FIXES ================== */
+@media (max-width: 768px) {
+
+  /* ===== Panchangam: 2-column layout ===== */
+  .daily-panchangam {
+    padding: 15px 12px !important;
+    margin: 20px auto !important;
+  }
+
+  .panchangam-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 columns */
+    gap: 12px 20px !important;
+    text-align: left !important;
+  }
+
+  .panchangam-item {
+    display: flex !important;
+    flex-direction: column !important; /* label on top, value below */
+    gap: 2px !important;
+    font-size: 13px !important;
+  }
+
+  .panchangam-item .label,
+  .panchangam-item .value {
+    display: block !important;
+  }
+
+  /* ===== Slider Images fit mobile ===== */
+  .temple-slider {
+    height: 45vh !important; /* adjust height */
+    max-height: 320px !important;
+    margin-top: 10px !important;
+    overflow: hidden !important;
+  }
+
+  .slide {
+    background-size: cover !important;  /* ensures image covers container */
+    background-position: center center !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .slide-content {
+    bottom: 6% !important;
+    left: 5% !important;
+    right: 5% !important;
+    max-width: 90% !important;
+  }
+
+  .slide-content h1 {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+  }
+
+  .slide-content p {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* ===== Navbar vertical & buttons visible ===== */
+  nav {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    padding: 10px !important;
+  }
+
+  nav a {
+    font-size: 14px !important;
+    text-align: center !important;
+    padding: 8px 0 !important;
+  }
+
+  /* ===== State / Planner / Map / Login buttons uniform ===== */
+  .state-buttons,
+  .planner-section,
+  .map-btn,
+  .login-btn {
+    width: 95% !important;
+    margin: 6px auto !important;
+    font-size: 14px !important;
+  }
+
+  /* ===== Fix Avyaan + Side Menu collision ===== */
+  #side-menu.open ~ #avyaan-launcher,
+  #side-menu.open ~ #avyaan-box {
+    display: none !important;
+  }
+
+}
