@@ -2037,3 +2037,14 @@ body {
     display: none;
   }
 }
+@media(max-width: 768px){
+  .timeline-item {
+    width: 100%;
+    padding: 20px;
+    text-align: left !important;
+  }
+  .timeline-item::after {
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+}
