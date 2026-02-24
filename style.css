@@ -1715,32 +1715,6 @@ body {
     }
   }
 
-  /* ===== Slider Fix ===== */
-  .temple-slider {
-    height: 52vh !important; /* smaller height to fit mobile */
-    margin-top: 10px !important;
-  }
-
-  .slide-content {
-    max-width: 90% !important;
-    bottom: 8% !important;
-    left: 5% !important;
-    right: 5% !important;
-  }
-
-  .slide-content h1 {
-    font-size: 20px !important;
-  }
-
-  .slide-content p {
-    font-size: 13px !important;
-  }
-
-  .btn {
-    padding: 8px 16px !important;
-    font-size: 13px !important;
-  }
-
   /* ===== Navbar Buttons ===== */
   nav {
     display: flex !important;        /* force show navbar */
@@ -1932,38 +1906,6 @@ body {
     display: block !important;
   }
 
-  /* ===== Slider Images fit mobile ===== */
-  .temple-slider {
-    height: 45vh !important; /* adjust height */
-    max-height: 320px !important;
-    margin-top: 10px !important;
-    overflow: hidden !important;
-  }
-
-  .slide {
-    background-size: cover !important;  /* ensures image covers container */
-    background-position: center center !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  .slide-content {
-    bottom: 6% !important;
-    left: 5% !important;
-    right: 5% !important;
-    max-width: 90% !important;
-  }
-
-  .slide-content h1 {
-    font-size: 18px !important;
-    line-height: 1.2 !important;
-  }
-
-  .slide-content p {
-    font-size: 12px !important;
-    line-height: 1.4 !important;
-  }
-
   /* ===== Navbar vertical & buttons visible ===== */
   nav {
     display: flex !important;
@@ -2041,63 +1983,6 @@ body {
     padding: 10px 16px !important;
     font-size: 14px !important;
   }
-
-  /* Slider images fit fully */
-  .temple-slider, .temple-slider .slide {
-    height: 52vh !important; /* mobile slider height */
-    width: 100% !important;
-  }
-
-  .temple-slider .slide {
-    background-size: contain !important; /* fit full image */
-    background-position: center center !important;
-  }
-
-  /* Slide content scaling */
-  .slide-content {
-    max-width: 90% !important;
-    bottom: 8% !important;
-    left: 5% !important;
-    right: 5% !important;
-  }
-
-  .slide-content h1 {
-    font-size: 20px !important;
-  }
-
-  .slide-content p {
-    font-size: 13px !important;
-  }
-
-  .btn {
-    padding: 8px 16px !important;
-    font-size: 13px !important;
-  }
-}
-/* ===== Mobile-only slider text adjustment ===== */
-@media (max-width:768px){
-
-  /* Default slide text stays near bottom */
-  .temple-slider .slide-content {
-    bottom: 8% !important;
-    left: 5%;
-    right: 5%;
-    max-width: 90%;
-  }
-
-  /* Only the CENTER/active slide moves text lower */
-  .temple-slider .slide.active .slide-content {
-    bottom: 20% !important; /* adjust this value to move text lower */
-  }
-
-  .slide-content h1 {
-    font-size: 20px !important;
-  }
-
-  .slide-content p {
-    font-size: 13px !important;
-  }
-}
 /* Mobile-only slider fix */
 @media (max-width: 768px) {
   .temple-slider {
