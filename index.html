@@ -629,5 +629,25 @@ if(window.innerWidth <= 768){
   showSlide(currentSlide);
 }
 </script>
+<script>
+// Call this after your slides load
+function fitSliderMobile() {
+  const slider = document.querySelector('.temple-slider');
+  const slides = document.querySelectorAll('.slide img');
+
+  if(window.innerWidth <= 768 && slider && slides.length){
+    let maxHeight = window.innerHeight * 0.6; // 60% of mobile screen
+    slider.style.height = maxHeight + "px";
+    slides.forEach(img => {
+      img.style.maxHeight = maxHeight + "px";
+      img.style.width = "100%";
+      img.style.objectFit = "contain"; // entire image visible
+    });
+  }
+}
+
+window.addEventListener('load', fitSliderMobile);
+window.addEventListener('resize', fitSliderMobile);
+</script>
 </body>
 </html>
