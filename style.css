@@ -1692,3 +1692,180 @@ body {
         font-size: 20px;
     }
 }
+/* ============================= */
+/* 📱 MOBILE-ONLY FIXES - ALL IN ONE */
+/* ============================= */
+@media (max-width: 768px) {
+
+  /* ===== Panchangam Grid ===== */
+  .panchangam-grid {
+    grid-template-columns: 1fr 1fr; /* 2 columns for mobile/tablet */
+    gap: 12px 20px;
+  }
+
+  .panchangam-item {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  /* Very small phones - 1 column */
+  @media (max-width: 480px) {
+    .panchangam-grid {
+      grid-template-columns: 1fr; /* single column on tiny phones */
+    }
+  }
+
+  /* ===== Slider Fix ===== */
+  .temple-slider {
+    height: 52vh !important; /* smaller height to fit mobile */
+    margin-top: 10px !important;
+  }
+
+  .slide-content {
+    max-width: 90% !important;
+    bottom: 8% !important;
+    left: 5% !important;
+    right: 5% !important;
+  }
+
+  .slide-content h1 {
+    font-size: 20px !important;
+  }
+
+  .slide-content p {
+    font-size: 13px !important;
+  }
+
+  .btn {
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+  }
+
+  /* ===== Navbar Buttons ===== */
+  nav {
+    display: flex !important;        /* force show navbar */
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 12px;
+    background: rgba(0,0,0,0.7);     /* subtle overlay for visibility */
+    position: relative;
+    z-index: 500;
+  }
+
+  nav a {
+    text-align: center;
+    font-size: 14px !important;
+    color: #ffd700;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  /* ===== State Buttons / Planner / Other Buttons ===== */
+  .state-buttons {
+    flex-wrap: wrap !important;
+    justify-content: center;
+    gap: 8px !important;
+  }
+
+  .state-buttons button,
+  .planner-section button,
+  .map-btn,
+  .login-btn {
+    width: 95% !important;
+    padding: 10px !important;
+    font-size: 14px !important;
+  }
+
+  /* ===== Side Menu Fix ===== */
+  #side-menu {
+    width: 260px;
+    left: -260px;
+    transition: left 0.3s ease;
+    z-index: 1001;
+  }
+
+  #side-menu.open {
+    left: 0;
+  }
+
+  #menu-overlay {
+    display: none;
+    z-index: 1000;
+  }
+
+  #menu-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 22px;
+    z-index: 1100;
+  }
+
+  /* ===== Avyaan Launcher Fix ===== */
+  #avyaan-launcher {
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999; /* below side menu */
+  }
+
+  /* Hide Avyaan when side menu is open */
+  #side-menu.open ~ #overlay,
+  #side-menu.open ~ .overlay {
+    z-index: 1200; /* above Avyaan */
+  }
+
+  /* Optional JS hook: add this if using JS to hide Avyaan */
+  #side-menu.open + #avyaan-launcher,
+  #side-menu.open + #avyaan-box {
+    display: none !important;
+  }
+
+  /* ===== Header & Logo ===== */
+  header {
+    padding: 15px 10px !important;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 20px !important;
+    margin-bottom: 6px;
+  }
+
+  header p {
+    font-size: 12px !important;
+    margin: 3px 0 0 0;
+  }
+
+  .site-logo img {
+    width: 95px !important;
+    height: 95px !important;
+  }
+
+  .site-logo::before {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  /* ===== Intro / Sections ===== */
+  .intro,
+  .states,
+  .sacred-intro,
+  .journey-section {
+    padding: 12px 10px !important;
+    margin-top: 0 !important;
+  }
+
+  .intro h2,
+  .sacred-intro h2,
+  .journey-title {
+    font-size: 18px !important;
+  }
+
+  .intro p,
+  .sacred-intro p,
+  .journey-poetic {
+    font-size: 13px !important;
+    line-height: 1.5;
+  }
+}
