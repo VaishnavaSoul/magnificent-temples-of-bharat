@@ -2098,3 +2098,57 @@ body {
     font-size: 13px !important;
   }
 }
+/* Mobile-only slider fix */
+@media (max-width: 768px) {
+  .temple-slider {
+    height: 60vh !important; /* adjust so it's visible nicely */
+    overflow: hidden;        /* hide top/bottom slides */
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+  }
+
+  .slide.active {
+    opacity: 1;
+    z-index: 1;
+    transform: translateY(0);
+  }
+
+  /* Embed content inside slide */
+  .slide-content {
+    position: absolute;
+    bottom: 15%;       /* inside image */
+    left: 5%;
+    right: 5%;
+    max-width: 90%;
+    color: #fff;
+    text-align: left;
+  }
+
+  .slide-content h1 {
+    font-size: 18px !important; /* slightly smaller */
+    color: #f5c400;
+  }
+
+  .slide-content p {
+    font-size: 12px !important;
+  }
+
+  .btn {
+    font-size: 12px !important;
+    padding: 6px 14px !important;
+  }
+
+  /* Hide extra nav arrows if you want cleaner look */
+  .nav {
+    display: none;
+  }
+}

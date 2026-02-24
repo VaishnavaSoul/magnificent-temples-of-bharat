@@ -592,5 +592,42 @@ Start your journey here 👇`,
   }
 }
 </script>
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.temple-slider .slide');
+
+function showSlide(index){
+  slides.forEach((s, i) => {
+    s.classList.remove('active');
+    if(i === index) s.classList.add('active');
+  });
+}
+
+// Only enable for mobile
+if(window.innerWidth <= 768){
+  // Swipe detection
+  let startX = 0;
+  const slider = document.querySelector('.temple-slider');
+
+  slider.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener('touchend', e => {
+    let endX = e.changedTouches[0].clientX;
+    if(endX - startX > 50){ // swipe right
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+    if(startX - endX > 50){ // swipe left
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+  });
+
+  // Init first slide
+  showSlide(currentSlide);
+}
+</script>
 </body>
 </html>
