@@ -2074,3 +2074,27 @@ body {
     font-size: 13px !important;
   }
 }
+/* ===== Mobile-only slider text adjustment ===== */
+@media (max-width:768px){
+
+  /* Default slide text stays near bottom */
+  .temple-slider .slide-content {
+    bottom: 8% !important;
+    left: 5%;
+    right: 5%;
+    max-width: 90%;
+  }
+
+  /* Only the CENTER/active slide moves text lower */
+  .temple-slider .slide.active .slide-content {
+    bottom: 20% !important; /* adjust this value to move text lower */
+  }
+
+  .slide-content h1 {
+    font-size: 20px !important;
+  }
+
+  .slide-content p {
+    font-size: 13px !important;
+  }
+}
