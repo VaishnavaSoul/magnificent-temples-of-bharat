@@ -1610,3 +1610,46 @@ background:#ff3b3b;
   color: #FF9933;
   font-weight: bold;
 }
+.temple-list {
+  width: 80%;
+  margin: 40px auto;
+}
+
+.temple-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1a1a1a;
+  padding: 18px 25px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  border-left: 4px solid #ff9933;
+}
+
+.temple-item:hover {
+  background: #222;
+  transform: translateX(5px);
+}
+
+.number {
+  font-weight: bold;
+  color: #ff9933;
+  margin-right: 15px;
+}
+
+.name {
+  flex: 1;
+  color: #ffd700;
+}
+
+.arrow {
+  text-decoration: none;
+  font-size: 20px;
+  color: #ff9933;
+  transition: 0.3s;
+}
+
+.arrow:hover {
+  color: #ffffff;
+}
