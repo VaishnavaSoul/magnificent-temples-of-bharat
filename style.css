@@ -2061,3 +2061,54 @@ body {
     object-fit: contain !important; /* fit inside without cropping */
   }
 }
+/* ===== MOBILE SLIDER FIX (FULL SCREEN FIT + Buttons) ===== */
+@media (max-width: 768px) {
+  .temple-slider {
+    height: 50vh !important;       /* adjust to half viewport height */
+    max-height: 60vh !important;   /* optional max */
+    overflow: hidden;
+    position: relative;
+  }
+
+  .temple-slider .slide {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .temple-slider .slide img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* fills slider without distortion */
+  }
+
+  /* Slide content */
+  .temple-slider .slide-content {
+    bottom: 5% !important;
+    left: 5% !important;
+    right: 5% !important;
+    max-width: 90% !important;
+  }
+
+  .temple-slider .slide-content h1 {
+    font-size: 18px !important;
+  }
+
+  .temple-slider .slide-content p {
+    font-size: 13px !important;
+  }
+
+  /* Nav buttons visible inside screen */
+  .temple-slider .nav {
+    font-size: 26px !important;
+    padding: 8px 12px !important;
+    top: 45% !important;
+  }
+
+  .temple-slider .nav.prev {
+    left: 8px !important;
+  }
+
+  .temple-slider .nav.next {
+    right: 8px !important;
+  }
+}
