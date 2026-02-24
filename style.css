@@ -1995,3 +1995,82 @@ body {
   }
 
 }
+/* ===== MOBILE-ONLY FIXES ===== */
+@media(max-width:768px){
+
+  /* 🪔 Panchangam: Force 2 columns for mobile/tablets */
+  .daily-panchangam .panchangam-grid {
+    grid-template-columns: 1fr 1fr; /* 2 columns */
+    gap: 12px 20px;
+  }
+
+  .daily-panchangam .panchangam-item {
+    flex-direction: row; /* keep label + value side by side */
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+  /* Navbar vertical ONLY */
+  nav {
+    display: flex !important;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 12px;
+    background: rgba(0,0,0,0.7);
+    position: relative;
+    z-index: 500;
+  }
+
+  nav a {
+    text-align: center;
+    font-size: 14px !important;
+    color: #ffd700;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  /* Keep state buttons horizontal (wrap if needed) */
+  .state-buttons {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+
+  .state-buttons button {
+    width: auto !important;   /* undo full-width forcing */
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+  }
+
+  /* Slider images fit fully */
+  .temple-slider, .temple-slider .slide {
+    height: 52vh !important; /* mobile slider height */
+    width: 100% !important;
+  }
+
+  .temple-slider .slide {
+    background-size: contain !important; /* fit full image */
+    background-position: center center !important;
+  }
+
+  /* Slide content scaling */
+  .slide-content {
+    max-width: 90% !important;
+    bottom: 8% !important;
+    left: 5% !important;
+    right: 5% !important;
+  }
+
+  .slide-content h1 {
+    font-size: 20px !important;
+  }
+
+  .slide-content p {
+    font-size: 13px !important;
+  }
+
+  .btn {
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+  }
+}
