@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verify Email | Ritual Realms</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+    url("images/krishna.jpg") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.verify-container {
+  width: 400px;
+  background: #0d0d0d;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(255, 140, 0, 0.6);
+  border: 1px solid rgba(255,140,0,0.3);
+}
+
+.logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 3px solid #ffd700;
+  box-shadow: 0 0 20px rgba(255,215,0,0.6);
+}
+
+h2 {
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(90deg, #ffd700, #ffa500);
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ffa500;
+}
+</style>
+</head>
+
+<body>
+
+<div class="verify-container">
+
+  <!-- Circular Logo -->
+  <img src="images/logo.png" class="logo" alt="Ritual Realms Logo">
+
+  <h2>📧 Verify Your Email</h2>
+  <p>
+    A divine message has been sent to your inbox.  
+    Please verify your email before continuing your journey.
+  </p>
+
+  <button id="continueBtn">
+    I Have Verified ✨
+  </button>
+
+</div>
+
+<script type="module">
+import { auth } from "./firebase-config.js";
+import { reload } 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+document.getElementById("continueBtn").addEventListener("click", async () => {
+
+  if (!auth.currentUser) {
+    alert("Please log in again.");
+    window.location.href = "signup.html";
+    return;
+  }
+
+  await reload(auth.currentUser);
+
+  if (auth.currentUser.emailVerified) {
+    window.location.href = "intro.html";
+  } else {
+    alert("Email not verified yet. Please check your inbox.");
+  }
+
+});
+</script>
+
+</body>
+</html>
