@@ -2,6 +2,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <title>Ritual Realms | The Sacred Unveiled</title>
     <!-- Share Preview (Open Graph) -->
     <meta property="og:title" content="Ritual Realms – The Sacred Temple Explorer">
@@ -136,6 +138,13 @@
     </p>
 
     </section>
+    <section class="aarti-section">
+    <h2 class="section-title">Virtual Aarti</h2>
+    <div class="aarti-container">
+    <div id="diyaEmoji" class="diya-emoji">🪔</div>
+    <div id="aartiInfo" class="aarti-info">Click the lamp to light it and receive a blessing!</div>
+    </div>
+    </section>
    
 
     <!-- STATES SECTION -->
@@ -165,6 +174,26 @@
             Telangana
         </button>
     </div>
+</section>
+<!-- SPIRITUAL MOOD METER -->
+<section class="mood-section">
+
+<h2 class="section-title">How Are You Feeling Today?</h2>
+
+<div class="mood-container">
+
+<button onclick="showBlessing('peace')" class="mood-btn">🙏 Seeking Peace</button>
+
+<button onclick="showBlessing('strength')" class="mood-btn">💪 Need Strength</button>
+
+<button onclick="showBlessing('stress')" class="mood-btn">😔 Feeling Stressed</button>
+
+<button onclick="showBlessing('gratitude')" class="mood-btn">😊 Gratitude</button>
+
+</div>
+
+<div id="blessingBox" class="blessing-box"></div>
+
 </section>
 <!-- ===== DAILY VAISHNAVA PANCHANGAM ===== -->
 <section class="daily-panchangam">
@@ -233,6 +262,89 @@
   </div>
 
 </section>
+<section class="moon-phase-bar">
+
+  <div class="moon-heading">
+    Lunar Phase of Today
+  </div>
+
+  <div class="moon-container">
+
+    <div class="moon-item" data-phase="0">
+      <div class="moon-icon">🌑</div>
+      <span>New Moon</span>
+    </div>
+
+    <div class="moon-item" data-phase="1">
+      <div class="moon-icon">🌒</div>
+      <span>Waxing Crescent</span>
+    </div>
+
+    <div class="moon-item" data-phase="2">
+      <div class="moon-icon">🌓</div>
+      <span>First Quarter</span>
+    </div>
+
+    <div class="moon-item" data-phase="3">
+      <div class="moon-icon">🌔</div>
+      <span>Waxing Gibbous</span>
+    </div>
+
+    <div class="moon-item" data-phase="4">
+      <div class="moon-icon">🌕</div>
+      <span>Full Moon</span>
+    </div>
+
+    <div class="moon-item" data-phase="5">
+      <div class="moon-icon">🌖</div>
+      <span>Waning Gibbous</span>
+    </div>
+
+    <div class="moon-item" data-phase="6">
+      <div class="moon-icon">🌗</div>
+      <span>Last Quarter</span>
+    </div>
+
+    <div class="moon-item" data-phase="7">
+      <div class="moon-icon">🌘</div>
+      <span>Waning Crescent</span>
+    </div>
+
+  </div>
+
+</section>
+<!-- FESTIVAL COUNTDOWN -->
+<section class="festival-section">
+  <h2 class="section-title">Upcoming Festival</h2>
+
+  <div class="festival-card">
+      <h3 id="festivalName">Festival Name</h3>
+      <p class="festival-sub">Festival Description</p>
+
+      <div class="countdown">
+          <div class="time-box">
+              <span id="days">0</span>
+              <p>Days</p>
+          </div>
+
+          <div class="time-box">
+              <span id="hours">0</span>
+              <p>Hours</p>
+          </div>
+
+          <div class="time-box">
+              <span id="minutes">0</span>
+              <p>Minutes</p>
+          </div>
+
+          <div class="time-box">
+              <span id="seconds">0</span>
+              <p>Seconds</p>
+          </div>
+      </div>
+  </div>
+</section>
+
 <!-- TEMPLE SLIDER -->
 <section class="temple-slider">
 
@@ -292,7 +404,98 @@
   <button class="nav next" onclick="nextSlide()">❯</button>
 
 </section>
-<div style="height: 1000px;"></div>
+<hr>
+
+<section class="temple-tracker">
+
+<h2 class="tracker-title">
+🛕 Temple Locator — Begin Your Sacred Journey
+</h2>
+
+<p class="tracker-sub">
+Find temples near your current location and plan your divine visit.
+</p>
+
+<div class="tracker-controls">
+  <label>Select temples to show:</label>
+  <select id="templeCount">
+    <option value="5">5 Temples</option>
+    <option value="10">10 Temples</option>
+    <option value="15">15 Temples</option>
+  </select>
+
+  <button onclick="findTemples()">Locate Temples</button>
+</div>
+
+<div id="templeMap"></div>
+
+</section>
+<section class="faq-section">
+
+  <h2 class="faq-title">Sacred Wisdom – Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      What makes a temple spiritually powerful beyond its architecture?
+      <span class="arrow">▼</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        A temple is far more than a magnificent structure of stone and sculpture. It is a consecrated spiritual center where divine energy is invoked through sacred rituals and Vedic ceremonies. Over centuries, continuous worship, chanting, and offerings create a powerful vibrational field within the sanctum. Devotees often experience deep calm and clarity upon entering. This accumulated spiritual resonance transforms the temple into a living sanctuary of transcendence.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      Why are temples constructed following sacred geometry and direction?
+      <span class="arrow">▼</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        Ancient temple architects followed precise principles from Vastu Shastra and Shilpa Shastras. Every measurement, direction, and structural element is designed to harmonize cosmic forces with human consciousness. East-facing entrances symbolize awakening and welcome the rising sun’s energy. Sacred geometry ensures proportional balance, enabling the temple space to subtly elevate the devotee’s awareness and inner harmony.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      How do temple rituals support emotional and spiritual well-being?
+      <span class="arrow">▼</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        Rituals such as Abhishekam, Aarti, and mantra chanting engage the senses in a structured devotional rhythm. The sound of bells, sacred hymns, and fragrance of incense calm the nervous system and focus the mind. Participating in rituals cultivates gratitude, humility, and surrender. Over time, this disciplined spiritual engagement strengthens emotional resilience and deepens one’s connection with the Divine.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      What role do temple festivals play in preserving heritage?
+      <span class="arrow">▼</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        Temple festivals are vibrant manifestations of cultural and spiritual heritage. Through sacred processions, music, and ritual offerings, ancient legends are kept alive for each generation. These celebrations unite communities in devotion and service. Festivals reinforce shared values and ensure that sacred traditions continue to flourish with dignity and devotion.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      Can temple visits influence one's life direction and inner journey?
+      <span class="arrow">▼</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        For many devotees, temple visits become transformative experiences. Standing before a consecrated deity inspires reflection, humility, and renewed purpose. The sacred silence and devotional ambience encourage introspection and clarity. While each individual’s journey differs, countless seekers have experienced inner peace and strengthened faith through sincere temple worship.
+      </p>
+    </div>
+  </div>
+
+</section>
+<div style="height: 250px;"></div>
 <!-- Footer -->
 <div class="footer">
   © 2026 Ritual Realms. All rights reserved.
@@ -331,6 +534,9 @@ sections.forEach(section => observer.observe(section));
 </script>
 <!-- Avyaan Floating Logo -->
 <div id="avyaan-launcher">
+  <h2 class="avyaan-heading">
+  Seek Guidance with Avyaan AI — Your Sacred Journey Companion
+  </h2>
   <img src="images/avyaan-logo.png" alt="Avyaan AI">
 </div>
 
@@ -648,6 +854,273 @@ function fitSliderMobile() {
 
 window.addEventListener('load', fitSliderMobile);
 window.addEventListener('resize', fitSliderMobile);
+</script>
+<script type="module">
+import { auth } from "./firebase-config.js";
+import { signOut } 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+document.getElementById("logout-btn").addEventListener("click", async () => {
+  await signOut(auth);
+  window.location.href = "welcome.html";
+});
+</script>
+<script type="module">
+import { auth } from "./firebase-config.js";
+import { onAuthStateChanged } 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    window.location.href = "welcome.html";
+  }
+});
+</script>
+<script>
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+  item.querySelector(".faq-question").addEventListener("click", () => {
+
+    faqItems.forEach(i => {
+      if(i !== item){
+        i.classList.remove("active");
+        i.querySelector(".faq-answer").style.maxHeight = null;
+      }
+    });
+
+    item.classList.toggle("active");
+    const answer = item.querySelector(".faq-answer");
+
+    if(item.classList.contains("active")){
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    } else {
+      answer.style.maxHeight = null;
+    }
+
+  });
+});
+</script>
+<script>
+function getMoonPhase() {
+
+  const today = new Date();
+  const knownNewMoon = new Date(2024, 0, 11); // Known recent new moon reference
+  const lunarCycle = 29.53058867;
+
+  const daysSince = (today - knownNewMoon) / (1000 * 60 * 60 * 24);
+  const phase = daysSince % lunarCycle;
+
+  const index = Math.floor((phase / lunarCycle) * 8);
+
+  return index;
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+  const phaseIndex = getMoonPhase();
+  const items = document.querySelectorAll(".moon-item");
+
+  items.forEach(item => {
+    if(parseInt(item.dataset.phase) === phaseIndex){
+      item.classList.add("active");
+    }
+  });
+});
+</script>
+<script>
+
+const ORS_API_KEY = "eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjIwM2Y1NGMxZmY3NzQ5NmRiYTZmYTY0ZmViODc4YWI5IiwiaCI6Im11cm11cjY0In0=";
+
+let map = L.map('templeMap').setView([20.5937,78.9629],5);
+
+// Temple themed map colors
+L.tileLayer(
+'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+{
+  attribution:'© OpenStreetMap'
+}).addTo(map);
+
+async function findTemples(){
+
+  navigator.geolocation.getCurrentPosition(async position => {
+
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    const count = document.getElementById("templeCount").value;
+
+    map.setView([lat,lon],13);
+
+    L.marker([lat,lon])
+      .addTo(map)
+      .bindPopup("📍 You are here")
+      .openPopup();
+
+    // Overpass API — find temples automatically
+    const query = `
+    [out:json];
+    node["amenity"="place_of_worship"]
+    (around:5000,${lat},${lon});
+    out ${count};
+    `;
+
+    const response = await fetch(
+      "https://overpass-api.de/api/interpreter",
+      {
+        method:"POST",
+        body:query
+      }
+    );
+
+    const data = await response.json();
+
+    data.elements.forEach(async temple => {
+
+      const tLat = temple.lat;
+      const tLon = temple.lon;
+      const name = temple.tags.name || "Temple";
+
+      L.marker([tLat,tLon])
+        .addTo(map)
+        .bindPopup("🛕 "+name);
+
+      // Route + travel time
+      const route = await fetch(
+        `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${ORS_API_KEY}&start=${lon},${lat}&end=${tLon},${tLat}`
+      );
+
+      const routeData = await route.json();
+
+      const summary =
+        routeData.features[0].properties.summary;
+
+      const distance =
+        (summary.distance/1000).toFixed(2);
+
+      const duration =
+        (summary.duration/60).toFixed(0);
+
+      L.popup()
+        .setLatLng([tLat,tLon])
+        .setContent(
+          `<b>${name}</b><br>
+          Distance: ${distance} km<br>
+          Travel Time: ${duration} mins`
+        );
+    });
+
+  });
+}
+
+</script>
+<script>
+// List of upcoming Hindu festivals in 2026
+const festivals = [
+  { name: "Holi", date: "March 4, 2026", desc: "Festival of Colors" },
+  { name: "Ugadi / Gudi Padwa", date: "March 19, 2026", desc: "Hindu New Year Celebrations" },
+  { name: "Ram Navami", date: "March 27, 2026", desc: "Birth of Lord Rama" },
+  { name: "Hanuman Jayanti", date: "April 2, 2026", desc: "Celebration of Lord Hanuman" },
+  { name: "Akshaya Tritiya", date: "April 26, 2026", desc: "Auspicious Day for New Beginnings" },
+  { name: "Buddha Purnima", date: "May 1, 2026", desc: "Birth of Lord Buddha" },
+  { name: "Jagannath Rath Yatra", date: "July 16, 2026", desc: "Chariot Festival of Jagannath" },
+  { name: "Guru Purnima", date: "July 29, 2026", desc: "Honoring Spiritual Teachers" },
+  { name: "Onam", date: "August 26, 2026", desc: "Harvest Festival of Kerala" },
+  { name: "Raksha Bandhan", date: "August 28, 2026", desc: "Celebrating Sibling Bonds" },
+  { name: "Krishna Janmashtami", date: "September 4, 2026", desc: "Birth of Lord Krishna" },
+  { name: "Ganesh Chaturthi", date: "September 14, 2026", desc: "Festival of Lord Ganesha" },
+  { name: "Navratri Begins", date: "October 11, 2026", desc: "Nine Days of Worship" },
+  { name: "Dussehra", date: "October 20, 2026", desc: "Victory of Good Over Evil" },
+  { name: "Dhanteras", date: "November 6, 2026", desc: "Beginning of Diwali Festivities" },
+  { name: "Diwali", date: "November 8, 2026", desc: "Festival of Lights" },
+  { name: "Govardhan Puja", date: "November 10, 2026", desc: "Celebration After Diwali" },
+  { name: "Bhai Dooj", date: "November 11, 2026", desc: "Celebrating Brother-Sister Bond" },
+  { name: "Chhath Puja", date: "November 15, 2026", desc: "Sun Worship Festival" },
+  { name: "Gita Jayanti", date: "December 23, 2026", desc: "Day of the Bhagavad Gita" }
+];
+
+// Get next upcoming festival
+function getNextFestival() {
+  const today = new Date();
+  for (let fest of festivals) {
+    const festDate = new Date(fest.date + " 00:00:00");
+    if (festDate > today) return fest;
+  }
+  return festivals[0]; // fallback if all passed
+}
+
+let currentFest = getNextFestival();
+document.getElementById("festivalName").innerText = currentFest.name;
+document.querySelector(".festival-sub").innerText = currentFest.desc;
+
+const targetTime = new Date(currentFest.date + " 00:00:00").getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const distance = targetTime - now;
+
+  const days = Math.floor(distance / (1000*60*60*24));
+  const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+  const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+  const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+  document.getElementById("days").innerText = days;
+  document.getElementById("hours").innerText = hours;
+  document.getElementById("minutes").innerText = minutes;
+  document.getElementById("seconds").innerText = seconds;
+}, 1000);
+</script>
+<script>
+function showBlessing(mood){
+
+const box = document.getElementById("blessingBox");
+
+let message = "";
+
+if(mood==="peace"){
+message="🪔 Chant: Om Shanti Shanti Shanti 🙏<br>Visit a Vishnu temple today for inner calm.";
+}
+
+if(mood==="strength"){
+message="🔥 Chant: Om Namah Shivaya 💪<br>Lord Shiva grants courage and resilience.";
+}
+
+if(mood==="stress"){
+message="🌿 Take 3 deep breaths and chant Gayatri Mantra once.<br>Divine energy restores balance.";
+}
+
+if(mood==="gratitude"){
+message="🌸 Offer thanks today — gratitude multiplies blessings.<br>Recite Vishnu Sahasranama.";
+}
+
+box.innerHTML = message;
+box.style.display="block";
+}
+</script>
+<script>
+const diyaEmoji = document.getElementById("diyaEmoji");
+const aartiInfo = document.getElementById("aartiInfo");
+
+const blessings = [
+  "May Lord Shiva bless you with wisdom and strength.",
+  "Chanting the Gayatri Mantra purifies the mind and soul.",
+  "Visit a temple today and feel the divine energy around you.",
+  "Offer your prayers with devotion, and the universe listens.",
+  "Light the lamp and dispel darkness from your life."
+];
+
+let isLit = false;
+
+diyaEmoji.addEventListener("click", () => {
+  isLit = !isLit;
+
+  if (isLit) {
+    diyaEmoji.classList.add("lit");
+    const random = blessings[Math.floor(Math.random() * blessings.length)];
+    aartiInfo.innerText = random;
+  } else {
+    diyaEmoji.classList.remove("lit");
+    aartiInfo.innerText = "Click the lamp to light it and receive a blessing!";
+  }
+});
 </script>
 </body>
 </html>

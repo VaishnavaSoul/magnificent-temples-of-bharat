@@ -809,7 +809,6 @@ nav {
     gap: 4px;
   }
 }
-/* Avyaan Launcher */
 #avyaan-launcher {
   position: fixed;
   bottom: 110px;
@@ -817,6 +816,11 @@ nav {
   transform: translateX(-50%);
   z-index: 9999;
   cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 #avyaan-launcher img {
@@ -2112,4 +2116,343 @@ body {
 
   .nav.prev { left: 6px !important; }
   .nav.next { right: 6px !important; }
+}
+/* FAQ SECTION */
+
+.faq-section {
+  max-width: 950px;
+  margin: auto;
+  padding: 20px;
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.faq-item {
+  background: rgba(255, 140, 0, 0.05);
+  border: 1px solid rgba(255, 140, 0, 0.5);
+  border-radius: 16px;
+  margin-bottom: 25px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.2);
+}
+
+.faq-item.active {
+  box-shadow: 0 0 40px rgba(255, 140, 0, 0.9);
+  border: 1px solid rgba(255, 140, 0, 1);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 22px 28px;
+  background: transparent;
+  border: none;
+  color: #FFD700;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow {
+  font-size: 18px;
+  transition: transform 0.4s ease;
+  color: #FFD700;
+}
+
+.faq-item.active .arrow {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  padding: 0 28px;
+}
+
+.faq-answer p {
+  margin: 20px 0;
+  line-height: 1.9;
+  font-size: 15.5px;
+  color: #FFD700;
+}
+.avyaan-heading {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: #FFD700;
+  font-weight: 600;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+}
+.moon-phase-bar{
+  max-width:1100px;
+  margin:100px auto;
+  padding:50px 40px;
+  border-radius:22px;
+  border:1px solid rgba(255,215,0,0.4);
+  background:rgba(255,215,0,0.05);
+  box-shadow:0 0 45px rgba(255,215,0,0.25);
+}
+
+.moon-heading{
+  text-align:center;
+  font-size:32px;
+  color:#FFD700;
+  margin-bottom:50px;
+  font-weight:600;
+  text-shadow:0 0 14px rgba(255,215,0,0.7);
+  letter-spacing:1px;
+}
+
+.moon-container{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:50px 30px;
+}
+
+.moon-item{
+  text-align:center;
+  color:#FFD700;
+  opacity:0.4;
+  transition:all 0.3s ease;
+}
+
+.moon-icon{
+  font-size:70px;
+  transition:all 0.3s ease;
+}
+
+.moon-item span{
+  display:block;
+  margin-top:15px;
+  font-size:15px;
+}
+
+.moon-item.active{
+  opacity:1;
+}
+
+.moon-item.active .moon-icon{
+  text-shadow:0 0 30px rgba(255,215,0,1);
+  transform:scale(1.3);
+}
+.temple-tracker{
+  text-align:center;
+  padding:40px 20px;
+}
+
+.tracker-title{
+  color:#FFD700;
+  font-size:32px;
+  text-shadow:0 0 12px rgba(255,215,0,0.6);
+}
+
+.tracker-sub{
+  color:#ffcc80;
+  margin-bottom:20px;
+}
+
+.tracker-controls{
+  margin-bottom:20px;
+}
+
+.tracker-controls select,
+.tracker-controls button{
+  padding:10px 15px;
+  border:none;
+  border-radius:8px;
+  margin:5px;
+  font-weight:bold;
+}
+
+.tracker-controls button{
+  background:linear-gradient(45deg,#ff9933,#FFD700);
+  cursor:pointer;
+}
+
+#templeMap{
+  height:500px;
+  border-radius:14px;
+  box-shadow:0 0 25px rgba(255,153,51,0.6);
+}
+/* FESTIVAL SECTION */
+.festival-section{
+    text-align:center;
+    padding:60px 20px;
+    /* keep your existing background image */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.section-title{
+    color: #FFD700;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px rgba(255,215,0,0.7);
+    letter-spacing: 1px;
+}
+
+/* CARD */
+.festival-card{
+    max-width: 520px;
+    margin: auto;
+    padding: 35px 25px;
+    border-radius: 20px;
+
+    /* transparent background to show your image */
+    background: rgba(0,0,0,0.0);
+
+    border: 2px solid #FFD700;
+    box-shadow: 0 0 30px rgba(255,215,0,0.3), 0 10px 25px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.festival-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 0 40px rgba(255,215,0,0.6), 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.festival-card h3{
+    color: #FFD700;
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 8px rgba(255,215,0,0.8);
+}
+
+.festival-sub{
+    color: #ffb347;
+    margin-bottom: 25px;
+    font-style: italic;
+    font-size: 18px;
+}
+
+/* COUNTDOWN */
+.countdown{
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.time-box{
+    /* transparent but with golden glow */
+    background: rgba(0,0,0,0.0);
+    padding: 20px 15px;
+    border-radius: 14px;
+    width: 90px;
+    border: 2px solid #FFD700;
+    box-shadow: 0 0 15px rgba(255,215,0,0.25), inset 0 0 8px rgba(255,215,0,0.15);
+    transition: transform 0.2s ease;
+}
+.time-box:hover{
+    transform: scale(1.08);
+}
+
+.time-box span{
+    font-size: 26px;
+    color: #FFD700;
+    font-weight: bold;
+    text-shadow: 0 0 6px rgba(255,215,0,0.8);
+}
+
+.time-box p{
+    margin-top: 5px;
+    font-size: 14px;
+    color: #ffdd66;
+    letter-spacing: 0.5px;
+}
+.mood-section{
+    text-align:center;
+    padding:70px 20px;
+}
+
+.mood-container{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+/* BUTTONS */
+.mood-btn{
+    background:linear-gradient(145deg,#ff9933,#ffcc66);
+    border:none;
+    padding:12px 18px;
+    border-radius:25px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.mood-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 15px gold;
+}
+
+/* RESULT BOX */
+.blessing-box{
+    margin-top:30px;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:20px;
+
+    background:#0b1a3a;
+    border-radius:15px;
+    color:#FFD700;
+    box-shadow:0 0 20px rgba(255,215,0,0.3);
+
+    display:none;
+    animation:fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(10px);}
+    to{opacity:1;transform:translateY(0);}
+}
+.aarti-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.aarti-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.diya-emoji {
+  font-size: 120px; /* bigger size */
+  cursor: pointer;
+  transition: transform 0.2s ease, text-shadow 0.3s ease;
+}
+
+.diya-emoji:hover {
+  transform: scale(1.2);
+}
+
+.diya-emoji.lit {
+  text-shadow:
+    0 0 12px #FFD700,
+    0 0 25px #FFD700,
+    0 0 40px #FFA500,
+    0 0 60px #FFD700,
+    0 0 80px #FFA500;
+}
+.aarti-info {
+  color: #FFD700;
+  font-size: 16px;
+  max-width: 300px;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(255,215,0,0.7);
 }
