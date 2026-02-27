@@ -907,89 +907,89 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 </script>
 <script>
-
 const ORS_API_KEY = "eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjIwM2Y1NGMxZmY3NzQ5NmRiYTZmYTY0ZmViODc4YWI5IiwiaCI6Im11cm11cjY0In0=";
 
-let map = L.map('templeMap').setView([20.5937,78.9629],5);
+let map;
 
-// Temple themed map colors
-L.tileLayer(
-'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-{
-  attribution:'© OpenStreetMap'
-}).addTo(map);
+async function findTemples() {
+  try {
+    // Initialize map only if element exists
+    const mapEl = document.getElementById("templeMap");
+    if (!mapEl) return;
 
-async function findTemples(){
+    map = L.map('templeMap').setView([20.5937,78.9629],5);
 
-  navigator.geolocation.getCurrentPosition(async position => {
+    L.tileLayer(
+      'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+      { attribution:'© OpenStreetMap' }
+    ).addTo(map);
 
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;
-    const count = document.getElementById("templeCount").value;
+    // Geolocation with safe fallback
+    if (!navigator.geolocation) {
+      alert("Geolocation not supported. Showing India view.");
+      return;
+    }
 
-    map.setView([lat,lon],13);
+    navigator.geolocation.getCurrentPosition(async position => {
 
-    L.marker([lat,lon])
-      .addTo(map)
-      .bindPopup("📍 You are here")
-      .openPopup();
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const count = document.getElementById("templeCount").value;
 
-    // Overpass API — find temples automatically
-    const query = `
-    [out:json];
-    node["amenity"="place_of_worship"]
-    (around:5000,${lat},${lon});
-    out ${count};
-    `;
+      map.setView([lat,lon],13);
 
-    const response = await fetch(
-      "https://overpass-api.de/api/interpreter",
-      {
+      L.marker([lat,lon]).addTo(map).bindPopup("📍 You are here").openPopup();
+
+      // Overpass API — find temples automatically
+      const query = `
+      [out:json];
+      node["amenity"="place_of_worship"](around:5000,${lat},${lon});
+      out ${count};
+      `;
+
+      const response = await fetch("https://overpass-api.de/api/interpreter", {
         method:"POST",
         body:query
-      }
-    );
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    data.elements.forEach(async temple => {
+      data.elements.forEach(async temple => {
+        const tLat = temple.lat;
+        const tLon = temple.lon;
+        const name = temple.tags.name || "Temple";
 
-      const tLat = temple.lat;
-      const tLon = temple.lon;
-      const name = temple.tags.name || "Temple";
+        L.marker([tLat,tLon])
+          .addTo(map)
+          .bindPopup("🛕 "+name);
 
-      L.marker([tLat,tLon])
-        .addTo(map)
-        .bindPopup("🛕 "+name);
+        // Optional: Travel route
+        try {
+          const route = await fetch(
+            `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${ORS_API_KEY}&start=${lon},${lat}&end=${tLon},${tLat}`
+          );
+          const routeData = await route.json();
+          const summary = routeData.features[0].properties.summary;
+          const distance = (summary.distance/1000).toFixed(2);
+          const duration = (summary.duration/60).toFixed(0);
 
-      // Route + travel time
-      const route = await fetch(
-        `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${ORS_API_KEY}&start=${lon},${lat}&end=${tLon},${tLat}`
-      );
+          L.popup()
+            .setLatLng([tLat,tLon])
+            .setContent(`<b>${name}</b><br>Distance: ${distance} km<br>Travel Time: ${duration} mins`);
 
-      const routeData = await route.json();
+        } catch(err) {
+          console.log("Route fetch failed for "+name, err);
+        }
+      });
 
-      const summary =
-        routeData.features[0].properties.summary;
-
-      const distance =
-        (summary.distance/1000).toFixed(2);
-
-      const duration =
-        (summary.duration/60).toFixed(0);
-
-      L.popup()
-        .setLatLng([tLat,tLon])
-        .setContent(
-          `<b>${name}</b><br>
-          Distance: ${distance} km<br>
-          Travel Time: ${duration} mins`
-        );
+    }, error => {
+      alert("Could not access location. Showing India view.");
     });
 
-  });
+  } catch(err) {
+    console.log("Temple map failed to load:", err);
+  }
 }
-
 </script>
 <script>
 // List of upcoming Hindu festivals in 2026
