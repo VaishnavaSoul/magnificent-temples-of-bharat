@@ -534,6 +534,29 @@ Find temples near your current location and plan your divine visit.
   </div>
 
 </section>
+<!-- Avyaan Floating Logo -->
+<div id="avyaan-launcher">
+  <h2 class="avyaan-heading">
+  Seek Guidance with Avyaan AI — Your Sacred Journey Companion
+  </h2>
+  <img src="images/avyaan-logo.png" alt="Avyaan AI">
+</div>
+
+<!-- Avyaan Chat Box -->
+<div id="avyaan-box">
+  <div class="avyaan-header">
+    Avyaan • Your Yatra Guide
+    <span id="avyaan-close">✕</span>
+  </div>
+
+  <div id="avyaan-messages"></div>
+
+  <div class="avyaan-input">
+    <input type="text" id="avyaan-text" placeholder="Ask Avyaan..." />
+    <button onclick="sendToAvyaan()">➤</button>
+  </div>
+</div>
+
 <div style="height: 250px;"></div>
 <!-- Footer -->
 <!-- ===== QUICK LINKS FOOTER ===== -->
@@ -620,28 +643,7 @@ sections.forEach(section => observer.observe(section));
     overlay.classList.remove("show");
   };
 </script>
-<!-- Avyaan Floating Logo -->
-<div id="avyaan-launcher">
-  <h2 class="avyaan-heading">
-  Seek Guidance with Avyaan AI — Your Sacred Journey Companion
-  </h2>
-  <img src="images/avyaan-logo.png" alt="Avyaan AI">
-</div>
 
-<!-- Avyaan Chat Box -->
-<div id="avyaan-box">
-  <div class="avyaan-header">
-    Avyaan • Your Yatra Guide
-    <span id="avyaan-close">✕</span>
-  </div>
-
-  <div id="avyaan-messages"></div>
-
-  <div class="avyaan-input">
-    <input type="text" id="avyaan-text" placeholder="Ask Avyaan..." />
-    <button onclick="sendToAvyaan()">➤</button>
-  </div>
-</div>
 <script>
 const launcher = document.getElementById("avyaan-launcher");
 const box = document.getElementById("avyaan-box");
