@@ -811,7 +811,7 @@ nav {
 }
 #avyaan-launcher {
   position: fixed;
-  bottom: 110px;
+  bottom: 460px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 9999;
@@ -832,7 +832,7 @@ nav {
 /* Chat Box */
 #avyaan-box {
   position: fixed;
-  bottom: 110px;
+  bottom: 450px;
   left: 50%;
   transform: translateX(-50%);
   width: 320px;
@@ -2455,4 +2455,247 @@ body {
   max-width: 300px;
   text-align: center;
   text-shadow: 0 0 8px rgba(255,215,0,0.7);
+}
+/* ============================= */
+/*      PREMIUM FOOTER STYLE     */
+/* ============================= */
+
+/* QUICK LINKS SECTION */
+.footer-links {
+  background: linear-gradient(180deg, #1a0f05, #0b0703);
+  color: #ffd700;
+  padding: 50px 20px 30px;
+  border-top: 3px solid #ff9933;
+  box-shadow: 0 -3px 15px rgba(255,153,51,0.4);
+}
+
+/* GRID CONTAINER */
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 35px;
+}
+
+/* COLUMN HEADINGS */
+.footer-column h3 {
+  color: #ff9933;
+  font-size: 18px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+/* LINKS */
+.footer-column a {
+  display: block;
+  color: #ffd700;
+  text-decoration: none;
+  margin: 8px 0;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #ffffff;
+  transform: translateX(6px);
+}
+
+/* CONTACT TEXT */
+.footer-contact p {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #ffd700;
+}
+
+/* DIVIDER */
+.footer-divider {
+  height: 1px;
+  background: rgba(255,153,51,0.3);
+  margin-top: 35px;
+}
+
+
+/* ============================= */
+/*     BOTTOM FOOTER TEXT        */
+/* ============================= */
+
+.footer {
+  background: #0b0703; /* SAME COLOR → looks merged */
+  color: #ffd700;
+  text-align: center;
+  padding: 20px 10px 25px;
+  font-size: 15px;
+}
+
+/* QUOTE LINE */
+.footer .line {
+  color: #ff9933;
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 6px;
+}
+/* ============================= */
+/* SACRED COLLECTIONS (BLENDED) */
+/* ============================= */
+
+.collections-section {
+  padding: 70px 20px;
+  text-align: center;
+  background: transparent; /* IMPORTANT */
+}
+
+/* HEADING */
+.collections-title {
+  font-size: 34px;
+  color: #FFD700;
+  margin-bottom: 12px;
+  text-shadow: 0 0 12px rgba(255,215,0,0.7);
+}
+
+.collections-subtitle {
+  max-width: 750px;
+  margin: auto;
+  color: #ffd700;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 50px;
+}
+
+/* GRID */
+.collections-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 35px;
+}
+
+/* PREMIUM GLASS CARD */
+.collection-card {
+  background: rgba(0,0,0,0.55); /* glass effect over your bg */
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255,215,0,0.4);
+  border-radius: 18px;
+  padding: 30px 25px;
+  transition: 0.4s ease;
+}
+
+/* GOLD GLOW HOVER */
+.collection-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 0 18px rgba(255,215,0,0.6),
+    0 0 30px rgba(255,153,51,0.4);
+  border-color: #FFD700;
+}
+
+/* TEXT */
+.collection-card h3 {
+  color: #FF9933;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.collection-card p {
+  color: #FFD700;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* BUTTON */
+.collection-btn {
+  text-decoration: none;
+  background: linear-gradient(45deg,#FFD700,#FF9933);
+  color: #111;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.collection-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg,#FF9933,#FFD700);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .collections-title{
+    font-size:26px;
+  }
+}
+/* ===== PREMIUM STATES SECTION ===== */
+
+.states-premium{
+    padding:70px 8%;
+    text-align:center;
+}
+
+/* Title (SAFFRON) */
+.states-title{
+    font-size:2.3rem;
+    color:#ff9933; /* saffron */
+    margin-bottom:8px;
+    letter-spacing:1px;
+}
+
+/* Subtitle (YELLOW) */
+.states-sub{
+    color:#ffd700;
+    margin-bottom:45px;
+    font-size:15px;
+}
+
+/* GRID */
+.states-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+}
+
+/* CARD */
+.state-card{
+    background:rgba(10,15,30,0.6);
+    border:1px solid rgba(255,153,51,0.4);
+    border-radius:14px;
+    padding:28px 20px;
+    cursor:pointer;
+    transition:0.35s;
+    backdrop-filter:blur(6px);
+}
+
+/* Hover Premium Effect */
+.state-card:hover{
+    transform:translateY(-6px);
+    box-shadow:
+        0 10px 25px rgba(255,153,51,0.25);
+    border-color:#ff9933;
+}
+
+/* State Name (SAFFRON) */
+.state-card h3{
+    color:#ff9933;
+    margin-bottom:10px;
+    font-size:1.25rem;
+}
+
+/* Description (YELLOW) */
+.state-card span{
+    color:#ffd700;
+    font-size:14px;
+}
+
+/* Coming Soon Badge */
+.coming{
+    display:inline-block;
+    margin-top:8px;
+    padding:4px 12px;
+    border-radius:20px;
+    background:linear-gradient(90deg,#ff9933,#ffd700);
+    color:#111;
+    font-weight:600;
+    font-size:12px;
 }

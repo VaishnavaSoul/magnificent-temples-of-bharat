@@ -28,25 +28,6 @@
 </head>
 
 <body>
-<style>
-/* Footer */
-.footer {
-  background: #111;
-  color: #ffd700;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 16px;
-  box-shadow: 0 -3px 15px rgba(255,153,51,0.5);
-  margin-top: 40px;
-}
-
-.footer .line {
-  color: #ff9933;
-  font-style: italic;
-  font-size: 14px;
-  margin-top: 5px;
-}
-</style>
 <!-- ☰ Menu Button -->
 <div id="menu-btn">☰</div>
 
@@ -145,35 +126,93 @@
     <div id="aartiInfo" class="aarti-info">Click the lamp to light it and receive a blessing!</div>
     </div>
     </section>
-   
+<!-- ===== PREMIUM STATES SECTION ===== -->
+<section id="states" class="states-premium">
 
-    <!-- STATES SECTION -->
-<section id="states" class="states">
-    <h2>Temples by State</h2>
+    <h2 class="states-title">Temples by State</h2>
+    <p class="states-sub">
+        Explore sacred temples across the divine lands of Bharat
+    </p>
 
-    <div class="state-buttons">
-        <button onclick="location.href='states/tamilnadu.html'">
-    Tamil Nadu
-        </button>
+    <div class="states-grid">
 
+        <div class="state-card" onclick="location.href='states/tamilnadu.html'">
+            <h3>Tamil Nadu</h3>
+            <span>Ancient Dravidian temples & Divya Desams</span>
+        </div>
 
-        <button onclick="location.href='states/andhrapradesh.html'">
-    Andra Pradesh
+        <div class="state-card" onclick="location.href='states/andhrapradesh.html'">
+            <h3>Andhra Pradesh</h3>
+            <span>Sacred hills and Vaishnavite traditions</span>
+        </div>
 
-        </button>
+        <div class="state-card" onclick="alert('Karnataka temples coming soon')">
+            <h3>Karnataka</h3>
+            <span class="coming">Coming Soon</span>
+        </div>
 
-        <button onclick="alert('Karnataka temples coming soon')">
-            Karnataka
-        </button>
+        <div class="state-card" onclick="alert('Kerala temples coming soon')">
+            <h3>Kerala</h3>
+            <span class="coming">Coming Soon</span>
+        </div>
 
-        <button onclick="alert('Kerala temples coming soon')">
-            Kerala
-        </button>
+        <div class="state-card" onclick="alert('Telangana temples coming soon')">
+            <h3>Telangana</h3>
+            <span class="coming">Coming Soon</span>
+        </div>
 
-        <button onclick="alert('Telangana temples coming soon')">
-            Telangana
-        </button>
     </div>
+
+</section>   
+<!-- ============================= -->
+<!-- SACRED PILGRIMAGE COLLECTIONS -->
+<!-- ============================= -->
+
+<section class="collections-section">
+
+  <h2 class="collections-title">
+    ✨ Sacred Pilgrimage Collections
+  </h2>
+
+  <p class="collections-subtitle">
+    Walk the divine paths followed by saints and devotees across Bharat.
+    Discover sacred traditions that transcend geography and time.
+  </p>
+
+  <div class="collections-container">
+
+    <div class="collection-card">
+      <h3>🛕 Divya Desams</h3>
+      <p>
+        The 108 sacred Vishnu temples praised by the Alvars,
+        forming the spiritual backbone of Vaishnava tradition
+        and devotion across Bharat.
+      </p>
+      <a href="#" class="collection-btn">Begin Divine Yatra →</a>
+    </div>
+
+    <div class="collection-card">
+      <h3>🔥 Jyotirlingas</h3>
+      <p>
+        Twelve sacred manifestations of Lord Shiva representing
+        cosmic light and eternal consciousness guiding seekers
+        toward liberation.
+      </p>
+      <a href="#" class="collection-btn">Explore Sacred Light →</a>
+    </div>
+
+    <div class="collection-card">
+      <h3>🌺 Shakti Peethas</h3>
+      <p>
+        Powerful temples of Divine Mother Shakti symbolizing
+        creation, protection and spiritual transformation
+        across sacred lands.
+      </p>
+      <a href="#" class="collection-btn">Enter Divine Energy →</a>
+    </div>
+
+  </div>
+
 </section>
 <!-- SPIRITUAL MOOD METER -->
 <section class="mood-section">
@@ -497,6 +536,55 @@ Find temples near your current location and plan your divine visit.
 </section>
 <div style="height: 250px;"></div>
 <!-- Footer -->
+<!-- ===== QUICK LINKS FOOTER ===== -->
+<section class="footer-links">
+
+  <div class="footer-container">
+
+    <!-- Quick Navigation -->
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <a href="index.html">🏠 Home</a>
+      <a href="#states">🛕 Explore Temples</a>
+      <a href="planner.html">🧭 Yatra Planner</a>
+      <a href="map.html">🗺 Map Explorer</a>
+      <a href="about.html">📜 About Ritual Realms</a>
+    </div>
+
+    <!-- Spiritual Tools -->
+    <div class="footer-column">
+      <h3>Spiritual</h3>
+      <a href="#">📅 Daily Panchangam</a>
+      <a href="#">🌙 Lunar Phase</a>
+      <a href="#">🙏 Virtual Aarti</a>
+      <a href="#">🤖 Avyaan AI Guide</a>
+      <a href="#">🎵 Divine Music</a>
+    </div>
+
+    <!-- Temple Categories -->
+    <div class="footer-column">
+      <h3>Sacred Destinations</h3>
+      <a href="states/tamilnadu.html">Tamil Nadu Temples</a>
+      <a href="states/andhrapradesh.html">Andhra Pradesh Temples</a>
+      <a href="#">Divya Desams (Coming Soon)</a>
+      <a href="#">Jyotirlingas (Coming Soon)</a>
+      <a href="#">Shakti Peethas (Coming Soon)</a>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="footer-column footer-contact">
+      <h3>Contact</h3>
+      <p>📍 Chennai, Tamil Nadu, India</p>
+      <p>📧 ritualrealms@gmail.com</p>
+      <p>🙏 Built with devotion for seekers of Bharat</p>
+      <p>🌐 Ritual Realms Spiritual Initiative</p>
+    </div>
+
+  </div>
+
+  <div class="footer-divider"></div>
+
+</section>
 <div class="footer">
   © 2026 Ritual Realms. All rights reserved.
   <div class="line">“Every sacred journey begins with devotion and faith.”</div>
