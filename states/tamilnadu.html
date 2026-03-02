@@ -1,187 +1,393 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DYX852KFZP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  gtag('config', 'G-DYX852KFZP');
-</script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tamil Nadu Temples</title>
-    <link rel="stylesheet" href="../style.css">
-</head>
+<title>Tamil Nadu Temples | Ritual Realms</title>
 
-<body>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
 <style>
-/* Footer */
-.footer {
-  background: #111;
-  color: #ffd700;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 16px;
-  box-shadow: 0 -3px 15px rgba(255,153,51,0.5);
-  margin-top: 40px;
+
+/* ======================
+   GLOBAL DIVINE STYLE
+====================== */
+
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    color:#ffd700;
+    background:
+        linear-gradient(rgba(0,0,0,0.88),rgba(0,0,0,0.95)),
+        url("../images/krishna.jpg");
+    background-size:cover;
+    background-attachment:fixed;
 }
 
+/* HEADER */
+
+header{
+    text-align:center;
+    padding:70px 20px 40px;
+}
+
+header h1{
+    font-family:'Cinzel',serif;
+    font-size:2.8rem;
+    letter-spacing:3px;
+    color:#ffd700;
+}
+
+.subtitle{
+    color:#ff9933;
+    margin-top:10px;
+}
+
+/* CONTAINER */
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+/* ======================
+   TEMPLE CARD
+====================== */
+
+.temple{
+    background:linear-gradient(to right,#0a0a0a,#050505);
+    border-left:4px solid #ff9933;
+    margin:25px 0;
+    padding:28px 22px;
+    cursor:pointer;
+    transition:0.35s;
+    position:relative;
+}
+
+.temple:hover{
+    transform:translateX(10px);
+    box-shadow:0 0 20px rgba(255,215,0,0.35);
+    border-left:4px solid #ffd700;
+}
+
+.temple-name{
+    font-family:'Cinzel',serif;
+    font-size:1.4rem;
+    color:#ffd700;
+}
+
+.temple-location{
+    margin-top:6px;
+    color:#ffb347;
+    font-size:0.95rem;
+}
+
+.divider{
+    height:1px;
+    background:linear-gradient(to right,transparent,#ffd700,transparent);
+    margin-top:18px;
+}
+
+/* CORNER ICON */
+
+.temple-icon{
+    position:absolute;
+    top:15px;
+    right:18px;
+    font-size:22px;
+    cursor:pointer;
+    transition:0.3s ease;
+    opacity:0.85;
+}
+
+.temple-icon:hover{
+    transform:scale(1.25);
+    filter:drop-shadow(0 0 8px gold);
+    opacity:1;
+}
+
+/* SEARCH BAR */
+
+.search{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.search input{
+    width:420px;
+    max-width:85%;
+    padding:14px 20px;
+    border-radius:40px;
+    border:1px solid #ffd700;
+    background:#000;
+    color:#ffd700;
+    outline:none;
+    font-size:16px;
+}
+
+.search input:focus{
+    box-shadow:0 0 15px rgba(255,215,0,0.6);
+}
+
+/* ============================= */
+/*      PREMIUM FOOTER STYLE     */
+/* ============================= */
+
+/* QUICK LINKS SECTION */
+.footer-links {
+  background: linear-gradient(180deg, #1a0f05, #0b0703);
+  color: #ffd700;
+  padding: 50px 20px 30px;
+  border-top: 3px solid #ff9933;
+  box-shadow: 0 -3px 15px rgba(255,153,51,0.4);
+}
+
+/* GRID CONTAINER */
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 35px;
+}
+
+/* COLUMN HEADINGS */
+.footer-column h3 {
+  color: #ff9933;
+  font-size: 18px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+/* LINKS */
+.footer-column a {
+  display: block;
+  color: #ffd700;
+  text-decoration: none;
+  margin: 8px 0;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #ffffff;
+  transform: translateX(6px);
+}
+
+/* CONTACT TEXT */
+.footer-contact p {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #ffd700;
+}
+
+/* DIVIDER */
+.footer-divider {
+  height: 1px;
+  background: rgba(255,153,51,0.3);
+  margin-top: 35px;
+}
+
+
+/* ============================= */
+/*     BOTTOM FOOTER TEXT        */
+/* ============================= */
+
+.footer {
+  background: #0b0703; /* SAME COLOR → looks merged */
+  color: #ffd700;
+  text-align: center;
+  padding: 20px 10px 25px;
+  font-size: 15px;
+}
+
+/* QUOTE LINE */
 .footer .line {
   color: #ff9933;
   font-style: italic;
   font-size: 14px;
-  margin-top: 5px;
+  margin-top: 6px;
 }
+
+
+@media(max-width:600px){
+header h1{
+    font-size:2rem;
+}
+}
+
 </style>
-<div class="overlay">
+</head>
 
-    <header>
-        <h1>Tamil Nadu Temples</h1>
-        <p>Land of Ancient Dravidian Architecture</p>
-    </header>
-    <nav>
-        <a href="../index.html">Home</a>
-        <a href="../index.html#states">States</a>
-    </nav>
+<body>
 
-    <section class="states">
-        <h2>Famous Temples</h2>
-        <div class="temple-list">
+<header>
+<h1>TAMIL NADU TEMPLES</h1>
+<div class="subtitle">Sacred Kshetras of the Land of the Cholas</div>
+</header>
 
-  <!-- 1 -->
-  <div class="temple-item clickable" onclick="location.href='../temples/meenakshi.html'">
-    <span class="number">1</span>
-    <span class="name">Meenakshi Amman Temple, Madurai</span>
-    <a href="https://en.wikipedia.org/wiki/Meenakshi_Temple" target="_blank" class="arrow" onclick="event.stopPropagation()">→</a>
-  </div>
+<div class="container">
 
-  <!-- 2 -->
-  <div class="temple-item clickable" onclick="location.href='../temples/brihadeeshwara.html'">
-    <span class="number">2</span>
-    <span class="name">Brihadeeshwara Temple, Thanjavur</span>
-    <a href="https://en.wikipedia.org/wiki/Brihadeeswarar_Temple" target="_blank" class="arrow" onclick="event.stopPropagation()">→</a>
-  </div>
+<div class="search">
+<input type="text" id="searchInput"
+placeholder="🔎 Search temple..."
+onkeyup="filterTemples()">
+</div>
 
-  <!-- 3 -->
-  <div class="temple-item clickable" onclick="location.href='../temples/ramanathaswamy.html'">
-    <span class="number">3</span>
-    <span class="name">Ramanathaswamy Temple, Rameswaram</span>
-    <a href="https://en.wikipedia.org/wiki/Ramanathaswamy_Temple" target="_blank" class="arrow" onclick="event.stopPropagation()">→</a>
-  </div>
-
-  <!-- 4 -->
-  <div class="temple-item clickable" onclick="location.href='../temples/chidambaram.html'">
-    <span class="number">4</span>
-    <span class="name">Chidambaram Nataraja Temple</span>
-    <a href="https://en.wikipedia.org/wiki/Chidambaram_Nataraja_Temple" target="_blank" class="arrow" onclick="event.stopPropagation()">→</a>
-  </div>
-
-  <!-- 5 -->
-  <div class="temple-item clickable" onclick="location.href='../temples/andal.html'">
-    <span class="number">5</span>
-    <span class="name">Srivilliputhur Andal Temple</span>
-    <span class="arrow">→</span>
-  </div>
-
-  <!-- 6 -->
-  <div class="temple-item clickable" onclick="location.href='../temples/kapaleeshwarar.html'">
-    <span class="number">6</span>
-    <span class="name">Kapaleeshwarar Temple, Chennai</span>
-    <span class="arrow">→</span>
-  </div>
-
-  <!-- 7 -->
-  <div class="temple-item clickable" onclick="location.href='../temples/triplicane.html'">
-    <span class="number">7</span>
-    <span class="name">Parthasarathy Temple, Triplicane</span>
-    <span class="arrow">→</span>
-  </div>
-
-  <!-- 8 -->
-  <div class="temple-item clickable" onclick="location.href='../temples/ekambareeshwarar.html'">
-    <span class="number">8</span>
-    <span class="name">Ekambareswarar Temple, Kanchipuram</span>
-    <span class="arrow">→</span>
-  </div>
-
-  <!-- 9 -->
-  <div class="temple-item clickable" onclick="location.href='../temples/varadhar.html'">
-    <span class="number">9</span>
-    <span class="name">Varadaraja Perumal Temple, Kanchipuram</span>
-    <span class="arrow">→</span>
-  </div>
-
-  <!-- 10 -->
-  <div class="temple-item">
-    <span class="number">10</span>
-    <span class="name">Arunachaleswarar Temple, Tiruvannamalai</span>
-    <span class="arrow">→</span>
-  </div>
-
-  <!-- 11 -->
-  <div class="temple-item">
-    <span class="number">11</span>
-    <span class="name">Murugan Temple, Palani</span>
-    <span class="arrow">→</span>
-  </div>
-
-  <!-- 12 -->
-  <div class="temple-item">
-    <span class="number">12</span>
-    <span class="name">Subramaniya Swamy Temple, Thiruttani</span>
-    <span class="arrow">→</span>
-  </div>
-
-  <!-- 13 -->
-  <div class="temple-item">
-    <span class="number">13</span>
-    <span class="name">Subramaniya Swamy Temple, Thiruchendur</span>
-    <span class="arrow">→</span>
-  </div>
-
-  <!-- 14 -->
-  <div class="temple-item">
-    <span class="number">14</span>
-    <span class="name">Veera Raghava Perumal Temple, Thiruvallur</span>
-    <span class="arrow">→</span>
-  </div>
-
-  <!-- 15 -->
-  <div class="temple-item">
-    <span class="number">15</span>
-    <span class="name">Nellaiappar Temple, Tirunelveli</span>
-    <span class="arrow">→</span>
-  </div>
-
-  <!-- 16 -->
-  <div class="temple-item">
-    <span class="number">16</span>
-    <span class="name">Ranganathaswamy Temple, Srirangam</span>
-    <span class="arrow">→</span>
-  </div>
-
-  <!-- 17 -->
-  <div class="temple-item">
-    <span class="number">17</span>
-    <span class="name">Thyagaraja Temple, Thiruvarur</span>
-    <span class="arrow">→</span>
-  </div>
+<div id="templeList"></div>
 
 </div>
 
+<!-- Footer -->
+<!-- ===== QUICK LINKS FOOTER ===== -->
+<section class="footer-links">
 
+  <div class="footer-container">
 
-
-    </section>
-
-    <!-- Footer -->
-    <div class="footer">
-    © 2026 Ritual Realms. All rights reserved.
-    <div class="line">“Every sacred journey begins with devotion and faith.”</div>
+    <!-- Quick Navigation -->
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <a href="index.html">🏠 Home</a>
+      <a href="#states">🛕 Explore Temples</a>
+      <a href="planner.html">🧭 Yatra Planner</a>
+      <a href="map.html">🗺 Map Explorer</a>
+      <a href="about.html">📜 About Ritual Realms</a>
     </div>
 
+    <!-- Spiritual Tools -->
+    <div class="footer-column">
+      <h3>Spiritual</h3>
+      <a href="#">📅 Daily Panchangam</a>
+      <a href="#">🌙 Lunar Phase</a>
+      <a href="#">🙏 Virtual Aarti</a>
+      <a href="#">🤖 Avyaan AI Guide</a>
+      <a href="#">🎵 Divine Music</a>
+    </div>
+
+    <!-- Temple Categories -->
+    <div class="footer-column">
+      <h3>Sacred Destinations</h3>
+      <a href="states/tamilnadu.html">Tamil Nadu Temples</a>
+      <a href="states/andhrapradesh.html">Andhra Pradesh Temples</a>
+      <a href="#">Divya Desams (Coming Soon)</a>
+      <a href="#">Jyotirlingas (Coming Soon)</a>
+      <a href="#">Shakti Peethas (Coming Soon)</a>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="footer-column footer-contact">
+      <h3>Contact</h3>
+      <p>📍 Chennai, Tamil Nadu, India</p>
+      <p>📧 ritualrealms@gmail.com</p>
+      <p>🙏 Built with devotion for seekers of Bharat</p>
+      <p>🌐 Ritual Realms Spiritual Initiative</p>
+    </div>
+
+  </div>
+
+  <div class="footer-divider"></div>
+
+</section>
+<div class="footer">
+  © 2026 Ritual Realms. All rights reserved.
+  <div class="line">“Every sacred journey begins with devotion and faith.”</div>
 </div>
+
+
+<script>
+
+/* ======================
+   TEMPLE DATA (ORDER SAME)
+====================== */
+
+const temples=[
+
+{name:"1. Sri Meenakshi Amman Temple",place:"Madurai",page:"../temples/meenakshi.html",wiki:"https://en.wikipedia.org/wiki/Meenakshi_Temple"},
+{name:"2. Sri Vaidhya Veeraragava Swamy Temple",place:"Tiruevvulur",page:"veeraragava.html",wiki:"#"},
+{name:"3. Sri Ranganathaswamy Temple",place:"Srirangam",page:"srirangam.html",wiki:"#"},
+{name:"4. Sri Brihadeeshwara Temple",place:"Thanjavur",page:"../temples/brihadeeshwara.html",wiki:"#"},
+{name:"5. Sri Ramanathaswamy Temple",place:"Rameshwaram",page:"../temples/ramanathaswamy.html",wiki:"#"},
+{name:"6. Sri Nataraja Temple",place:"Chidambaram",page:"../temples/chidambaram.html",wiki:"#"},
+{name:"7. Sri Andal Temple",place:"Srivilliputhur",page:"../temples/andal.html",wiki:"#"},
+{name:"8. Sri Kapaleeshwarar Temple",place:"Chennai",page:"../temples/kapaleeshwarar.html",wiki:"#"},
+{name:"9. Sri Parthasarathy Temple",place:"Chennai",page:"../temples/triplicane.html",wiki:"#"},
+{name:"10. Sri Ekambareeshwarar Temple",place:"Kanchipuram",page:"../temples/ekambareeshwarar.html",wiki:"#"},
+{name:"11. Sri Varadharaja Perumal Temple",place:"Kanchipuram",page:"../temples/varadhar.html",wiki:"#"},
+{name:"12. Sri Arunachaleshwarar Temple",place:"Thiruvannamalai",page:"arunachaleshwarar.html",wiki:"#"},
+{name:"13. Sri Murugan Temple",place:"Palani",page:"palani.html",wiki:"#"},
+{name:"14. Sri Subramanya Swamy Temple",place:"Thiruttani",page:"thiruttani.html",wiki:"#"},
+{name:"15. Sri Nellaiappar Temple",place:"Tirunelveli",page:"nellaiappar.html",wiki:"#"},
+{name:"16. Sri Thyagaraja Swamy Temple",place:"Thanjavur",page:"thyagaraja.html",wiki:"#"}
+
+];
+
+/* ======================
+   RENDER CARDS
+====================== */
+
+const container=document.getElementById("templeList");
+
+function renderTemples(list){
+
+container.innerHTML="";
+
+list.forEach(t=>{
+
+const block=document.createElement("div");
+block.className="temple";
+
+/* CARD CLICK → UNIQUE PAGE */
+block.onclick=()=>{
+window.location.href=t.page;
+};
+
+block.innerHTML=`
+
+<div class="temple-icon"
+onclick="openWiki(event,'${t.wiki}')">🛕</div>
+
+<div class="temple-name">${t.name}</div>
+<div class="temple-location">${t.place}</div>
+<div class="divider"></div>
+
+`;
+
+container.appendChild(block);
+
+});
+
+}
+
+renderTemples(temples);
+
+/* ======================
+   SEARCH FUNCTION
+====================== */
+
+function filterTemples(){
+
+const input=document
+.getElementById("searchInput")
+.value.toLowerCase();
+
+const filtered=temples.filter(t=>
+t.name.toLowerCase().includes(input) ||
+t.place.toLowerCase().includes(input)
+);
+
+renderTemples(filtered);
+}
+
+/* WIKI CLICK (STOP CARD CLICK) */
+
+function openWiki(event,link){
+event.stopPropagation();
+window.open(link,"_blank");
+}
+
+</script>
+
 </body>
 </html>

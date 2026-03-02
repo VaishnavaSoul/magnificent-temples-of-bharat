@@ -2699,3 +2699,38 @@ body {
     font-weight:600;
     font-size:12px;
 }
+/* =========================
+   MOBILE AVYAAN POSITION FIX
+========================= */
+
+@media (max-width:768px){
+
+    /* Stop floating on mobile */
+    #avyaan-launcher{
+        position:relative;
+        bottom:auto;
+        right:auto;
+        margin:40px auto;
+        text-align:center;
+    }
+
+    /* Chat box behaves normally */
+    #avyaan-box{
+        position:relative;
+        width:100%;
+        max-width:420px;
+        margin:20px auto;
+    }
+
+    /* Proper spacing before footer */
+    #avyaan-section{
+        padding-bottom:40px;
+        margin-bottom:40px;
+    }
+
+    footer{
+        clear:both;
+        position:relative;
+        z-index:1;
+    }
+}
