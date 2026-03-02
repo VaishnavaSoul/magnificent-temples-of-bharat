@@ -34,6 +34,41 @@
   font-size: 14px;
   margin-top: 5px;
 }
+
+/* MAP */
+.map-container{
+  position:relative;
+  width:500px;
+  max-width:90%;
+  margin:30px auto;
+}
+
+.india-map{
+  width:100%;
+  border-radius:12px;
+  box-shadow:0 0 20px rgba(255,153,51,0.4);
+}
+
+/* TEMPLE PIN STYLE */
+.map-pin{
+  position:absolute;
+  background:linear-gradient(45deg,#ff9933,#ffd700);
+  color:#000;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:bold;
+  text-decoration:none;
+  transform:translate(-50%,-50%);
+  cursor:pointer;
+  white-space:nowrap;
+  transition:0.3s;
+}
+
+.map-pin:hover{
+  transform:translate(-50%,-50%) scale(1.1);
+  box-shadow:0 0 12px gold;
+}
 </style>
 <div class="overlay">
 
@@ -42,11 +77,14 @@
     <p>Discover temples visually across Bharat</p>
   </header>
 
-  <div style="text-align:center; margin: 30px 0;">
-  <img 
-    src="images/india-map.png"
-    alt="India Temple Map"
-    style="width:500px; max-width:90%; border-radius:12px;">
+  <!-- INDIA MAP -->
+  <div class="map-container">
+
+  <img src="images/india-map.png" class="india-map" alt="India Temple Map">
+
+  <!-- PINS WILL APPEAR HERE -->
+  <div id="mapPins"></div>
+
   </div>
 
     <!-- State Buttons -->
@@ -69,43 +107,92 @@
   </div>
 
 </div>
-
 <script>
 function showTemples(state) {
+
   const container = document.getElementById("temples");
   const section = document.getElementById("templeList");
+  const mapPins = document.getElementById("mapPins");
+
   container.innerHTML = "";
+  mapPins.innerHTML = ""; // clears old pins
 
   let temples = [];
 
+  /* ---------- TAMIL NADU ---------- */
   if (state === "tn") {
     temples = [
-      { name: "Meenakshi Amman Temple", link: "temples/meenakshi.html" },
-      { name: "Chidambaram Nataraja Temple", link: "#" },
-      { name: "Brihadeeshwara Temple", link: "#" }
+      {
+        name: "Meenakshi Amman Temple",
+        link: "temples/meenakshi.html",
+        top: "89%",
+        left: "55%"
+      },
+      {
+        name: "Chidambaram Nataraja Temple",
+        link: "temples/chidambaram.html",
+        top: "86%",
+        left: "61%"
+      },
+      {
+        name: "Brihadeeshwara Temple",
+        link: "temples/brihadeeshwara.html",
+        top: "87%",
+        left: "56%"
+      }
     ];
   }
 
+  /* ---------- ANDHRA PRADESH ---------- */
   if (state === "ap") {
     temples = [
-      { name: "Tirupati Balaji", link: "temples/tirupati.html" },
-      { name: "Srikalahasti", link: "#" }
+      {
+        name: "Tirupati Balaji",
+        link: "temples/tirupati.html",
+        top: "70%",
+        left: "73%"
+      },
+      {
+        name: "Srikalahasti",
+        link: "#",
+        top: "67%",
+        left: "74%"
+      }
     ];
   }
 
+  /* ---------- KARNATAKA ---------- */
   if (state === "ka") {
     temples = [
-      { name: "Udupi Krishna Temple", link: "#" }
+      {
+        name: "Udupi Krishna Temple",
+        link: "#",
+        top: "70%",
+        left: "60%"
+      }
     ];
   }
 
+  /* CREATE BUTTONS + MAP PINS */
   temples.forEach(t => {
+
+    // Temple button list
     const btn = document.createElement("button");
     btn.className = "login-btn";
     btn.style.margin = "10px";
     btn.innerText = t.name;
     btn.onclick = () => window.location.href = t.link;
     container.appendChild(btn);
+
+    // Map pin
+    const pin = document.createElement("a");
+    pin.className = "map-pin";
+    pin.innerText = "📍 " + t.name;
+    pin.href = t.link;
+    pin.style.top = t.top;
+    pin.style.left = t.left;
+
+    mapPins.appendChild(pin);
   });
 
   section.style.display = "block";
