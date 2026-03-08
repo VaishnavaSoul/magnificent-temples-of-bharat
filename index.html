@@ -90,78 +90,6 @@
         <a href="planner.html">Planner</a>
         <a href="map.html">Map Explorer</a>
     </nav>
-<!-- ===============================
-        HOLI GRAND FESTIVAL SECTION
-================================ -->
-<!-- Floating Color Balls Background -->
-<canvas id="holiCanvas"></canvas>
-<section id="holiFestival">
-
-    <h1 class="holi-title">HAPPY HOLI</h1>
-
-    <p class="holi-blessing">
-        Let divine colors wash away darkness and fill life with bhakti, joy and sacred energy.
-    </p>
-
-    <!-- HOLI DETAILS -->
-    <div class="holi-container">
-
-        <div class="holi-card">
-            <h3>🌸 Holi Special</h3>
-            <p>
-                Holi is the sacred festival of colors celebrating victory of devotion over ego,
-                light over darkness and divine love over negativity. Devotees rejoice remembering
-                Lord Krishna’s playful leelas and the protection granted to Prahlada by Lord Vishnu.
-            </p>
-        </div>
-
-        <div class="holi-card">
-            <h3>🔥 Holi Legend</h3>
-            <p>
-                The festival originates from the story of Prahlada and Holika. Despite attempts
-                to destroy his devotion, divine grace protected Prahlada, symbolizing that true
-                faith always triumphs. Holika Dahan represents burning of arrogance and evil.
-            </p>
-        </div>
-
-        <div class="holi-card">
-            <h3>🎨 Why Holi is Celebrated</h3>
-            <p>
-                Holi marks the arrival of spring, renewal of relationships and spiritual cleansing.
-                Colors symbolize equality — dissolving social differences and uniting humanity
-                under divine joy.
-            </p>
-        </div>
-
-        <div class="holi-card">
-            <h3>🛕 Temples to Visit on Holi</h3>
-            <p>
-                Mathura and Vrindavan Krishna temples celebrate Holi grandly. Devotees also visit
-                ISKCON temples, Radha-Krishna shrines, and Vishnu temples to experience divine
-                celebrations filled with bhajans and flower offerings.
-            </p>
-        </div>
-
-        <div class="holi-card">
-            <h3>🌍 Where Holi is Celebrated</h3>
-            <p>
-                Holi is widely celebrated across India — especially Uttar Pradesh, Rajasthan,
-                Gujarat, and Madhya Pradesh. Vrindavan’s Phoolon Ki Holi and Barsana’s Lathmar
-                Holi are globally famous spiritual celebrations.
-            </p>
-        </div>
-
-        <div class="holi-card">
-            <h3>✨ Spiritual Meaning</h3>
-            <p>
-                Holi teaches surrender to divine love. Just as colors cover everyone equally,
-                divine grace embraces all souls without distinction.
-            </p>
-        </div>
-
-    </div>
-
-</section>
     <!-- MAIN CONTENT -->
     <section class="intro sacred-intro">
 
@@ -811,6 +739,7 @@ function getAvyaanReply(text) {
     <button onclick="playSong('audio/song2.mp3')">🕉 Shree Hari Stotram</button>
     <button onclick="playSong('audio/song3.mp3')">🕉 Garuda Gamana Tava</button>
     <button onclick="playSong('audio/song4.mp3')">🕉 Hara Hara Shambu Shivamahadeva</button>
+    <button onclick="playSong('audio/song5.mp3')">🕉 Tirupallandu - Periyazhwar Thirumozhi</button>
   </div>
 
   <div class="music-controls">
@@ -1160,6 +1089,7 @@ const festivals = [
   { name: "Ugadi / Gudi Padwa", date: "March 19, 2026", desc: "Hindu New Year Celebrations" },
   { name: "Ram Navami", date: "March 27, 2026", desc: "Birth of Lord Rama" },
   { name: "Hanuman Jayanti", date: "April 2, 2026", desc: "Celebration of Lord Hanuman" },
+  { name: "Puthandu / Baisakhi", date: "April 14, 2026", desc: "Hindu New Year Celebrations" },
   { name: "Akshaya Tritiya", date: "April 26, 2026", desc: "Auspicious Day for New Beginnings" },
   { name: "Buddha Purnima", date: "May 1, 2026", desc: "Birth of Lord Buddha" },
   { name: "Jagannath Rath Yatra", date: "July 16, 2026", desc: "Chariot Festival of Jagannath" },
@@ -1261,55 +1191,6 @@ diyaEmoji.addEventListener("click", () => {
     diyaEmoji.classList.remove("lit");
     aartiInfo.innerText = "Click the lamp to light it and receive a blessing!";
   }
-});
-</script>
-<script>
-const canvas = document.getElementById("holiCanvas");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let balls = [];
-
-/* Create balls */
-for(let i=0;i<60;i++){
-    balls.push({
-        x: Math.random()*canvas.width,
-        y: Math.random()*canvas.height,
-        radius: Math.random()*4 + 1.5,
-        dx: (Math.random()-0.5)*0.4,
-        dy: (Math.random()-0.5)*0.4,
-        color: `hsla(${Math.random()*360}, 90%, 65%, 0.6)`
-    });
-}
-
-function animate(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-
-    balls.forEach(ball=>{
-        ctx.beginPath();
-        ctx.arc(ball.x,ball.y,ball.radius,0,Math.PI*2);
-        ctx.fillStyle = ball.color;
-        ctx.fill();
-
-        ball.x += ball.dx;
-        ball.y += ball.dy;
-
-        /* bounce edges */
-        if(ball.x<0 || ball.x>canvas.width) ball.dx*=-1;
-        if(ball.y<0 || ball.y>canvas.height) ball.dy*=-1;
-    });
-
-    requestAnimationFrame(animate);
-}
-
-animate();
-
-/* resize fix */
-window.addEventListener("resize",()=>{
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
 });
 </script>
 </body>
